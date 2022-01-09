@@ -4,7 +4,7 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import { Typography, Grid, Container } from '@mui/material';
+import { Typography, Grid, Container, Button } from '@mui/material';
 import { gridSpacing } from 'store/constant';
 
 const Accordion = styled((props) => <MuiAccordion disableGutters elevation={0} square {...props} />)(({ theme }) => ({
@@ -64,7 +64,7 @@ export default function Examples() {
                                     mb: 2
                                 }}
                             >
-                                Parking Meter
+                                Smart Location - Parking Spot
                             </Typography>
                             <Typography
                                 variant="body2"
@@ -74,10 +74,21 @@ export default function Examples() {
                                     mb: 2
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit
-                                leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit ametamet blandit leo lobortis eget.
+                                Walk to a smart parking spot and pay per use. Either as a landlord or a user, this is a decentralized way to
+                                transfer value by providing a service and having consumers use it.
                             </Typography>
+                            <Grid container spacing={gridSpacing}>
+                                <Grid item sx={4}>
+                                    <Button variant="outlined" href="#outlined-buttons">
+                                        Controller Source Code
+                                    </Button>
+                                </Grid>
+                                <Grid item sx={4}>
+                                    <Button variant="outlined" href="#outlined-buttons">
+                                        Controller Live Sample
+                                    </Button>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                     <Grid container sx={{ mb: 10 }}>
@@ -93,7 +104,7 @@ export default function Examples() {
                                     mb: 2
                                 }}
                             >
-                                Lost & Found
+                                Digital Identity - Pet Tracker
                             </Typography>
                             <Typography
                                 variant="body2"
@@ -103,10 +114,21 @@ export default function Examples() {
                                     mb: 2
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit
-                                leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit ametamet blandit leo lobortis eget.
+                                Get information about the pet, is it lost? you can track the owners. Track the history of the pet including
+                                vaccinations, sickness and insurance.
                             </Typography>
+                            <Grid container spacing={gridSpacing}>
+                                <Grid item sx={4}>
+                                    <Button variant="outlined" href="#outlined-buttons">
+                                        Controller Source Code
+                                    </Button>
+                                </Grid>
+                                <Grid item sx={4}>
+                                    <Button variant="outlined" href="#outlined-buttons">
+                                        Controller Live Sample
+                                    </Button>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                     <Grid container sx={{ mb: 10 }}>
@@ -122,7 +144,7 @@ export default function Examples() {
                                     mb: 2
                                 }}
                             >
-                                Smart Home
+                                Smart Facilities - Access Control
                             </Typography>
                             <Typography
                                 variant="body2"
@@ -132,10 +154,61 @@ export default function Examples() {
                                     mb: 2
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit
-                                leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit ametamet blandit leo lobortis eget.
+                                Track the identities of all individuals attending a place or event. Have the ability to know who and how
+                                long were they present.
                             </Typography>
+                            <Grid container spacing={gridSpacing}>
+                                <Grid item sx={4}>
+                                    <Button variant="outlined" href="#outlined-buttons">
+                                        Controller Source Code
+                                    </Button>
+                                </Grid>
+                                <Grid item sx={4}>
+                                    <Button variant="outlined" href="#outlined-buttons">
+                                        Controller Live Sample
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid container sx={{ mb: 10 }}>
+                        <Grid item xs={12} md={6} className="video-container">
+                            <iframe title="t" src="//www.youtube.com/embed/YE7VzlLtp-4" frameBorder="0" allowFullScreen />
+                        </Grid>
+                        <Grid item xs={12} md={6} sx={{ px: 2, pt: 2 }}>
+                            <Typography
+                                variant="h1"
+                                sx={{
+                                    fontSize: '1.5rem',
+                                    fontWeight: 900,
+                                    mb: 2
+                                }}
+                            >
+                                Smart Home - WiFi Access
+                            </Typography>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontSize: '1.2rem',
+                                    fontWeight: 900,
+                                    mb: 2
+                                }}
+                            >
+                                Share the WiFi access with guests. Leverage blockchain to control for how long or how much they will be
+                                charged.
+                            </Typography>
+                            <Grid container spacing={gridSpacing}>
+                                <Grid item sx={4}>
+                                    <Button variant="outlined" href="#outlined-buttons">
+                                        Controller Source Code
+                                    </Button>
+                                </Grid>
+                                <Grid item sx={4}>
+                                    <Button variant="outlined" href="#outlined-buttons">
+                                        Controller Live Sample
+                                    </Button>
+                                </Grid>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>

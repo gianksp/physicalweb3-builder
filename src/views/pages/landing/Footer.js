@@ -92,7 +92,7 @@ const FooterPage = () => {
             <FooterSubWrapper>
                 <Container>
                     <Typography variant="subtitle2" component="div" color="inherit">
-                        &#169; CodedThemes
+                        &#169; The Physical Web3
                     </Typography>
                 </Container>
             </FooterSubWrapper>
