@@ -44,37 +44,37 @@ export default function CustomizedAccordions() {
 
     const questions = [
         {
-            question: 'Collapsible Group Item #1',
+            question: 'Why is the Physical Web3 built on top of the Web3?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
-            question: 'Collapsible Group Item #2',
+            question: 'Why does the Physical Web3 use URLs?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
-            question: 'Collapsible Group Item #3',
+            question: 'Why does Physical Web3 use NFC?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
-            question: 'Collapsible Group Item #1',
+            question: 'What does the decentralization of the Physical Web3 refer to?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
-            question: 'Collapsible Group Item #2',
+            question: 'How does the Physical Web3 address potential security concerns?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
-            question: 'Collapsible Group Item #3',
+            question: 'What is the difference of The Physical Web3 and The Physical Web?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
-            question: 'Collapsible Group Item #1',
+            question: 'Which platforms are supported?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },

@@ -144,7 +144,7 @@ export default function Examples() {
                                     mb: 2
                                 }}
                             >
-                                Smart Facilities - Access Control
+                                Smart Facilities - Access Control & Waiting List
                             </Typography>
                             <Typography
                                 variant="body2"

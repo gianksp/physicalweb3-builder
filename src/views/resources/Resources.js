@@ -64,7 +64,7 @@ export default function Resources() {
                                     mb: 2
                                 }}
                             >
-                                Parking Meter
+                                From Zero to Hero - A Hello World Tutorial
                             </Typography>
                             <Typography
                                 variant="body2"
@@ -93,7 +93,7 @@ export default function Resources() {
                                     mb: 2
                                 }}
                             >
-                                Lost & Found
+                                Configuring NFC tags
                             </Typography>
                             <Typography
                                 variant="body2"
@@ -122,7 +122,7 @@ export default function Resources() {
                                     mb: 2
                                 }}
                             >
-                                Smart Home
+                                Creating a Smart Object dApp Controller
                             </Typography>
                             <Typography
                                 variant="body2"
