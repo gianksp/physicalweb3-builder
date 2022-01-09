@@ -59,7 +59,7 @@ const FeaturePage = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                By having physical objects being driven my smart contracts and dApps, we can unleash the
+                                                By having physical objects being driven by smart contracts and dApps, we can unleash the
                                                 true power of smart objects.
                                             </Typography>
                                         </Grid>
@@ -104,11 +104,11 @@ const FeaturePage = () => {
                                 lineHeight: 1.4
                             }}
                         >
-                            The Physical Web3 enables you to interact with objects in the environment around you. These objects with an NFC
-                            (Near Field Communication) tag or sticker, which is a short range, contactless connection device that can
-                            broadcast URL addresses. When users get their mobiles close to the tag a message pulls down from the top asking
-                            if they want to open their browser. When they tap the message the respective dApp controller is launched and
-                            they can interact with the smart contract driving the smart object.
+                            The Physical Web3 enables you to interact with objects in the environment around you. These objects are embedded
+                            with an NFC (Near Field Communication) tag or sticker, which is a short range, contactless connection device
+                            that can broadcast URL addresses. When users get their mobiles close to the tag a message pulls down from the
+                            top of the device asking if they want to open their browser. When they tap the message the respective dApp
+                            controller is launched and they can interact with the smart contract driving the smart object.
                         </Typography>
                     </Grid>
                     <Grid item xs={12}>

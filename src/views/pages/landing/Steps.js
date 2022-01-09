@@ -12,6 +12,9 @@ import { gridSpacing } from 'store/constant';
 import PaletteTwoToneIcon from '@mui/icons-material/PaletteTwoTone';
 import ReorderTwoToneIcon from '@mui/icons-material/ReorderTwoTone';
 import SpeedTwoToneIcon from '@mui/icons-material/SpeedTwoTone';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import BuildIcon from '@mui/icons-material/Build';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 // =============================|| LANDING - FEATURE PAGE ||============================= //
 
@@ -46,7 +49,7 @@ const StepsPage = () => {
                                                     color: theme.palette.primary.main
                                                 }}
                                             >
-                                                <PaletteTwoToneIcon fontSize="large" />
+                                                <ShoppingCartIcon fontSize="large" />
                                             </Avatar>
                                         </Grid>
                                         <Grid item xs={12}>
@@ -54,8 +57,9 @@ const StepsPage = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                On supported Android devices, you can use Beacon Toy to transform your phone into an
-                                                Eddystone beacon. Otherwise, choose from a variety of beacon manufacturers.
+                                                NFC tags are small stickers, round-or-square-shaped, about the size of a large coin,
+                                                compatible with NFC-enabled devices like smartphones and tablets. They are relatively cheap
+                                                and allows you to transfer data between two devices that are in close proximity.
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -78,7 +82,7 @@ const StepsPage = () => {
                                                     color: theme.palette.secondary.main
                                                 }}
                                             >
-                                                <ReorderTwoToneIcon fontSize="large" />
+                                                <BuildIcon fontSize="large" />
                                             </Avatar>
                                         </Grid>
                                         <Grid item xs={12}>
@@ -86,8 +90,10 @@ const StepsPage = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                You’ll have to select which URLs you’d like to broadcast (browsers such as Chrome and Nearby
-                                                Notifications only support HTTPS) and how far and often you want your beacons to broadcast.
+                                                Leverage any existing mobile NFC tag editor app such as NFC Tools on{' '}
+                                                <a href="https://play.google.com/store/apps/details?id=com.wakdev.wdnfc&gl=IE">Android</a>{' '}
+                                                and <a href="https://apps.apple.com/us/app/nfc-tools/id1252962749">iOS</a> and configure it
+                                                to open your dApp controller URL.
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -110,7 +116,7 @@ const StepsPage = () => {
                                                     color: theme.palette.success.dark
                                                 }}
                                             >
-                                                <SpeedTwoToneIcon fontSize="large" />
+                                                <LaunchIcon fontSize="large" />
                                             </Avatar>
                                         </Grid>
                                         <Grid item xs={12}>
@@ -118,8 +124,8 @@ const StepsPage = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                Place your beacons in a physical space. Anyone who passes by with a Physical Web-compatible
-                                                service will see your URL.
+                                                Place your stickers in a physical space. Anyone who passes by with a mobile device will be
+                                                able to interact with the dApp controlling the device or location.
                                             </Typography>
                                         </Grid>
                                     </Grid>

@@ -26,7 +26,11 @@ import Logo from 'ui-component/Logo';
 
 // assets
 import { IconBook, IconCreditCard, IconDashboard, IconHome2 } from '@tabler/icons';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 
 function ElevationScroll({ children, window }) {
     const theme = useTheme();
@@ -66,19 +70,19 @@ const AppBar = ({ ...others }) => {
                 <Container>
                     <Toolbar>
                         <Typography component="div" sx={{ flexGrow: 1, textAlign: 'left' }}>
-                            <Button color="inherit" component={Link} href="#">
+                            <Button color="inherit" component={RouterLink} to="/">
                                 <Logo />
                             </Button>
                         </Typography>
                         <Stack direction="row" sx={{ display: { xs: 'none', sm: 'block' } }} spacing={2}>
-                            <Button color="inherit" component={RouterLink} to="login" target="_blank">
-                                Resources
+                            <Button color="inherit" component={RouterLink} to="/resources">
+                                RESORCES
                             </Button>
-                            <Button color="inherit" component={Link} href="https://codedthemes.gitbook.io/berry" target="_blank">
+                            <Button color="inherit" component={RouterLink} to="/faq">
                                 FAQ
                             </Button>
-                            <Button color="inherit" component={Link} href="https://codedthemes.gitbook.io/berry" target="_blank">
-                                Examples
+                            <Button color="inherit" component={RouterLink} to="/examples">
+                                EXAMPLES
                             </Button>
                             {/* <Button
                                 component={Link}
@@ -104,44 +108,28 @@ const AppBar = ({ ...others }) => {
                                     onKeyDown={drawerToggler(false)}
                                 >
                                     <List>
-                                        <Link style={{ textDecoration: 'none' }} href="#" target="_blank">
+                                        <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/resources">
                                             <ListItemButton component="a">
                                                 <ListItemIcon>
-                                                    <IconHome2 />
+                                                    <MenuBookIcon />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Home" />
+                                                <ListItemText primary="Resources" />
                                             </ListItemButton>
                                         </Link>
-                                        <Link style={{ textDecoration: 'none' }} href="/login" target="_blank">
+                                        <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/faq">
                                             <ListItemButton component="a">
                                                 <ListItemIcon>
-                                                    <IconDashboard />
+                                                    <HelpCenterIcon />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Dashboard" />
+                                                <ListItemText primary="FAQs" />
                                             </ListItemButton>
                                         </Link>
-                                        <Link
-                                            style={{ textDecoration: 'none' }}
-                                            href="https://codedthemes.gitbook.io/berry"
-                                            target="_blank"
-                                        >
+                                        <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/examples">
                                             <ListItemButton component="a">
                                                 <ListItemIcon>
-                                                    <IconBook />
+                                                    <VideoLibraryIcon />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Documentation" />
-                                            </ListItemButton>
-                                        </Link>
-                                        <Link
-                                            style={{ textDecoration: 'none' }}
-                                            href="https://material-ui.com/store/items/berry-react-material-admin/"
-                                            target="_blank"
-                                        >
-                                            <ListItemButton component="a">
-                                                <ListItemIcon>
-                                                    <IconCreditCard />
-                                                </ListItemIcon>
-                                                <ListItemText primary="Purchase Now" />
+                                                <ListItemText primary="Examples" />
                                             </ListItemButton>
                                         </Link>
                                     </List>

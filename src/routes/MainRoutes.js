@@ -489,10 +489,6 @@ const MainRoutes = {
             element: <UtilsGrid />
         },
         {
-            path: '/sample-page',
-            element: <SamplePage />
-        },
-        {
             path: '/dashboard/default',
             element: <DashboardDefault />
         },
