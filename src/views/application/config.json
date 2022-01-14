@@ -1,0 +1,63 @@
+{
+	"theme": {
+		"primary": "#2194f3",
+		"secondary": "#ffffff"
+	},
+	"network": {
+		"contract": "0x995EFB49f7ACD7f0D0770fD3a846Ee464577F589",
+		"imageUrl": "https://logowik.com/content/uploads/images/avalanche-coin-avax8592.jpg",
+		"name": "Fuji Testnet",
+		"id": 43113, 
+		"rpcUrl": "https://api.avax-test.network/ext/bc/C/rpc",
+		"currencySymbol": "AVAX",
+		"currencyName": "Avax",
+		"blockExplorerUrl": "https://testnet.snowtrace.io/"
+	},
+	"about": {
+		"appName": "Suggestion Box Controller",
+		"imageUrl": "https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif",
+		"title": "How does it work?",
+		"description": "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"name": "getLastMessage",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "lastMessage",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getMessages",
+			"outputs": [
+				{
+					"internalType": "string[]",
+					"name": "msgs",
+					"type": "string[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "message",
+					"type": "string"
+				}
+			],
+			"name": "processMessage",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

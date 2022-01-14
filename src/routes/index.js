@@ -11,6 +11,7 @@ const PagesLanding = Loadable(lazy(() => import('views/pages/landing')));
 const ResourcesPage = Loadable(lazy(() => import('views/resources')));
 const FaqPage = Loadable(lazy(() => import('views/faq')));
 const ExamplesPage = Loadable(lazy(() => import('views/examples')));
+const ApplicationPage = Loadable(lazy(() => import('views/application')));
 
 // ==============================|| ROUTING RENDER ||============================== //
 
@@ -20,6 +21,7 @@ export default function ThemeRoutes() {
         { path: '/faq', element: <FaqPage /> },
         { path: '/resources', element: <ResourcesPage /> },
         { path: '/examples', element: <ExamplesPage /> },
+        { path: '/dashboard', element: <ApplicationPage /> },
         AuthenticationRoutes,
         LoginRoutes,
         MainRoutes

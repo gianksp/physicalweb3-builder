@@ -120,6 +120,18 @@
     }
 }
 
+@media only screen and (max-width: 900px) {
+    #mobile-frame {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    #editor-container{
+        min-height: 700px;
+    }
+}
+
 @keyframes slideX {
     0%,
     50%,

@@ -19,6 +19,7 @@ import Snackbar from 'ui-component/extended/Snackbar';
 import { FirebaseProvider } from 'contexts/FirebaseContext';
 // import { JWTProvider } from 'contexts/JWTContext';
 // import { Auth0Provider } from 'contexts/Auth0Context';
+import { MoralisProvider } from 'react-moralis';
 
 // ==============================|| APP ||============================== //
 
@@ -26,24 +27,26 @@ const App = () => {
     const customization = useSelector((state) => state.customization);
 
     return (
-        <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={themes(customization)}>
-                <CssBaseline />
-                {/* RTL layout */}
-                {/* <RTLLayout> */}
-                <Locales>
-                    <NavigationScroll>
-                        <FirebaseProvider>
-                            <>
-                                <Routes />
-                                <Snackbar />
-                            </>
-                        </FirebaseProvider>
-                    </NavigationScroll>
-                </Locales>
-                {/* </RTLLayout> */}
-            </ThemeProvider>
-        </StyledEngineProvider>
+        <MoralisProvider appId={process.env.REACT_APP_MORALIS_APP_ID} serverUrl={process.env.REACT_APP_MORALIS_SERVER_URL}>
+            <StyledEngineProvider injectFirst>
+                <ThemeProvider theme={themes(customization)}>
+                    <CssBaseline />
+                    {/* RTL layout */}
+                    {/* <RTLLayout> */}
+                    <Locales>
+                        <NavigationScroll>
+                            <FirebaseProvider>
+                                <>
+                                    <Routes />
+                                    <Snackbar />
+                                </>
+                            </FirebaseProvider>
+                        </NavigationScroll>
+                    </Locales>
+                    {/* </RTLLayout> */}
+                </ThemeProvider>
+            </StyledEngineProvider>
+        </MoralisProvider>
     );
 };
 

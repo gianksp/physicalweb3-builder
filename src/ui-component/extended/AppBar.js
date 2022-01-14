@@ -84,15 +84,9 @@ const AppBar = ({ ...others }) => {
                             <Button color="inherit" component={RouterLink} to="/examples">
                                 EXAMPLES
                             </Button>
-                            {/* <Button
-                                component={Link}
-                                href="https://material-ui.com/store/items/berry-react-material-admin/"
-                                disableElevation
-                                variant="contained"
-                                color="secondary"
-                            >
-                                Purchase Now
-                            </Button> */}
+                            <Button component={RouterLink} to="/dashboard" disableElevation variant="outlined" color="primary">
+                                Go to console
+                            </Button>
                         </Stack>
                         <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
                             <IconButton color="inherit" onClick={drawerToggler(true)} size="large">
