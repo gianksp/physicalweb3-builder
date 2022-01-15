@@ -25,6 +25,7 @@ import {
 import Logo from 'ui-component/Logo';
 
 // assets
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
 import { IconBook, IconCreditCard, IconDashboard, IconHome2 } from '@tabler/icons';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
@@ -124,6 +125,14 @@ const AppBar = ({ ...others }) => {
                                                     <VideoLibraryIcon />
                                                 </ListItemIcon>
                                                 <ListItemText primary="Examples" />
+                                            </ListItemButton>
+                                        </Link>
+                                        <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/dashboard">
+                                            <ListItemButton component="a">
+                                                <ListItemIcon>
+                                                    <DashboardCustomizeIcon />
+                                                </ListItemIcon>
+                                                <ListItemText primary="Go to console" />
                                             </ListItemButton>
                                         </Link>
                                     </List>
