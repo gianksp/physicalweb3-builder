@@ -38,7 +38,6 @@ const AppCustomerProductReview = Loadable(lazy(() => import('views/application/c
 const AppChat = Loadable(lazy(() => import('views/application/chat')));
 const AppKanban = Loadable(lazy(() => import('views/application/kanban')));
 const AppMail = Loadable(lazy(() => import('views/application/mail')));
-const AppCalendar = Loadable(lazy(() => import('views/application/calendar')));
 const AppContactCard = Loadable(lazy(() => import('views/application/contact/Card')));
 const AppContactList = Loadable(lazy(() => import('views/application/contact/List')));
 
@@ -221,10 +220,6 @@ const MainRoutes = {
         {
             path: '/app/kanban',
             element: <AppKanban />
-        },
-        {
-            path: '/app/calendar',
-            element: <AppCalendar />
         },
         {
             path: '/app/contact/c-card',

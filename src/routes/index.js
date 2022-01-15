@@ -21,9 +21,6 @@ export default function ThemeRoutes() {
         { path: '/faq', element: <FaqPage /> },
         { path: '/resources', element: <ResourcesPage /> },
         { path: '/examples', element: <ExamplesPage /> },
-        { path: '/dashboard', element: <ApplicationPage /> },
-        AuthenticationRoutes,
-        LoginRoutes,
-        MainRoutes
+        { path: '/dashboard', element: <ApplicationPage /> }
     ]);
 }

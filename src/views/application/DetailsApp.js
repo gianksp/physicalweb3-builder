@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Box, Paper, Grid, Typography } from '@mui/material';
 import QRCode from 'react-qr-code';
 
-const getAppUrl = (id) => `https://g0aouoqdk2vt.usemoralis.com?appId=${id}`;
+const getAppUrl = (id) => `https://app.physicalweb3.com?appId=${id}`;
 
 const DetailsApp = ({ app }) => (
     <Paper sx={{ mt: 5, borderRadius: 0, p: 3, ml: -3 }} elevation="4">
