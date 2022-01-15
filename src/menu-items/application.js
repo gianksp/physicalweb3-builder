@@ -201,14 +201,6 @@ const application = {
             url: '/app/mail'
         },
         {
-            id: 'calendar',
-            title: <FormattedMessage id="calendar" />,
-            type: 'item',
-            url: '/app/calendar',
-            icon: icons.IconCalendar,
-            breadcrumbs: false
-        },
-        {
             id: 'contact',
             title: <FormattedMessage id="contact" />,
             type: 'collapse',

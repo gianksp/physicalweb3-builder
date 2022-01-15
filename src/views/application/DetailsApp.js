@@ -11,7 +11,7 @@ const DetailsApp = ({ app }) => (
             <Typography variant="h6">
                 <a href={getAppUrl(app.id)}>{getAppUrl(app.id)}</a>
             </Typography>
-            <Typography variant="h6">{app.attributes.configuration.network.name}</Typography>
+            <Typography variant="body">{app.attributes.configuration.network.name}</Typography>
         </Grid>
         <Grid item>
             <QRCode size="128" value={getAppUrl(app.id)} />
@@ -25,6 +25,7 @@ const DetailsApp = ({ app }) => (
                 }}
             />
         </Grid>
+        <Typography fontSize="0.65em">Last updated {app.attributes.updatedAt.toString()}</Typography>
     </Paper>
 );
 

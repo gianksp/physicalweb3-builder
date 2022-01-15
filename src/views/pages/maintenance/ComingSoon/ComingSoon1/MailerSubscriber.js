@@ -13,9 +13,12 @@ import useScriptRef from 'hooks/useScriptRef';
 import { SNACKBAR_OPEN } from 'store/actions';
 import { gridSpacing } from 'store/constant';
 
+import { useMoralis } from 'react-moralis';
 // ===========================|| MAILER SUBSCRIBER ||=========================== //
 
 const MailerSubscriber = ({ ...others }) => {
+    const { Moralis } = useMoralis();
+
     const scriptedRef = useScriptRef();
     const dispatch = useDispatch();
 
@@ -29,31 +32,43 @@ const MailerSubscriber = ({ ...others }) => {
                 email: Yup.string().email('Must be a valid email').max(255).required('Email is required')
             })}
             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-                try {
-                    const options = {
-                        headers: {
-                            'content-type': 'application/json'
-                        }
-                    };
-                    await axios.post('https://yourapicall', { email: values.email }, options);
+                const Subscriber = Moralis.Object.extend('Subscriber');
+                const targetEmail = values.email.toLowerCase();
+
+                const query = new Moralis.Query(Subscriber);
+                query.equalTo('email', targetEmail);
+                const object = await query.first();
+                if (object) {
                     dispatch({
                         type: SNACKBAR_OPEN,
                         open: true,
-                        message: 'Success! Please check inbox and confirm.',
+                        message: 'Email address is already registered!',
                         variant: 'alert',
-                        alertSeverity: 'success'
+                        alertSeverity: 'error'
                     });
-
-                    if (scriptedRef.current) {
-                        setStatus({ success: true });
-                        setSubmitting(false);
-                    }
-                } catch (err) {
-                    if (scriptedRef.current) {
-                        setStatus({ success: false });
-                        setErrors({ submit: err?.message });
-                        setSubmitting(false);
-                    }
+                } else {
+                    const subscriber = new Subscriber();
+                    subscriber.set('email', targetEmail);
+                    await subscriber.save().then(
+                        () => {
+                            dispatch({
+                                type: SNACKBAR_OPEN,
+                                open: true,
+                                message: 'Your email was added, stay tuned!',
+                                variant: 'alert',
+                                alertSeverity: 'success'
+                            });
+                        },
+                        (error) => {
+                            dispatch({
+                                type: SNACKBAR_OPEN,
+                                open: true,
+                                message: error.message,
+                                variant: 'alert',
+                                alertSeverity: 'error'
+                            });
+                        }
+                    );
                 }
             }}
         >

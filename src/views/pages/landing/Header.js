@@ -75,7 +75,7 @@ const HeaderPage = () => {
                                     }}
                                 >
                                     The Physical Web 3 is a decentralized approach to enable quick and seamless interactions with physical
-                                    objects and locations, making everything smart.
+                                    objects and locations powered by smart contracts, making everything smart.
                                 </Typography>
                             </motion.div>
                         </Grid>

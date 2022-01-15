@@ -4,6 +4,8 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import { useDispatch } from 'react-redux';
+import { SNACKBAR_OPEN } from 'store/actions';
 import {
     Typography,
     Grid,
@@ -17,7 +19,8 @@ import {
     Input,
     FormHelperText,
     InputLabel,
-    ListItemIcon
+    ListItemIcon,
+    Paper
 } from '@mui/material';
 import { gridSpacing } from 'store/constant';
 import useApps from 'hooks/useApps';
@@ -74,6 +77,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export default function Examples() {
     const theme = useTheme();
+    const dispatch = useDispatch();
     const { apps, loadApps } = useApps();
     const [appPrimaryColor, setAppPrimaryColor] = useState(createColor('#2194f3'));
     const [appFontColor, setAppFontColor] = useState(createColor('#000'));
@@ -86,6 +90,8 @@ export default function Examples() {
             abi: []
         }
     });
+    const [abiDefinition, setAbiDefinition] = useState(sampleConfig.abi);
+    const [selectedEVM, setSelectedEVM] = useState({});
     const { Moralis, user } = useMoralis();
 
     const handleChange = (event) => {
@@ -100,11 +106,31 @@ export default function Examples() {
             controller.set('configuration', sampleConfig);
             controller.set('owner', user.get('ethAddress'));
             controller.set('name', sampleConfig.about.appName);
-            controller.save().then((updatedController) => {
-                loadApps();
-                setSelectedApp({ id: '' });
-                setSelectedApp(updatedController);
-            });
+            controller.save().then(
+                (updatedController) => {
+                    loadApps();
+                    setSelectedApp({ id: '' });
+                    setSelectedApp(updatedController);
+                    setSelectedEVM(updatedController.attributes.configuration.network);
+                    setAbiDefinition(updatedController.attributes.configuration.abi);
+                    dispatch({
+                        type: SNACKBAR_OPEN,
+                        open: true,
+                        message: 'Application Controller Created!',
+                        variant: 'alert',
+                        alertSeverity: 'success'
+                    });
+                },
+                (error) => {
+                    dispatch({
+                        type: SNACKBAR_OPEN,
+                        open: true,
+                        message: error.message,
+                        variant: 'alert',
+                        alertSeverity: 'error'
+                    });
+                }
+            );
             return;
         }
         // Is from list?
@@ -113,6 +139,8 @@ export default function Examples() {
                 setSelectedApp(app);
                 setAppPrimaryColor(app.attributes.configuration.theme.primary);
                 setAppFontColor(app.attributes.configuration.theme.secondary);
+                setSelectedEVM(app.attributes.configuration.network);
+                setAbiDefinition(app.attributes.configuration.abi);
                 // setSelectedId(app.id);
                 // console.log(app.attributes.name);
             }
@@ -198,29 +226,15 @@ export default function Examples() {
         </Grid>
     );
 
-    const networkForm = selectedApp.id && (
-        <Grid item xs={12}>
-            <FormControl variant="standard" fullWidth>
-                <InputLabel htmlFor="contract">Contract</InputLabel>
-                <Input
-                    id="contract"
-                    onChange={(e) => {
-                        selectedApp.attributes.configuration.network.contract = e.target.value;
-                    }}
-                    aria-describedby="contract-text"
-                    defaultValue={selectedApp?.attributes.configuration.network.contract}
-                />
-                <FormHelperText id="contract-text">Text that will displayed as the application controller title</FormHelperText>
-            </FormControl>
+    const customNetwork = (
+        <Grid item>
             <FormControl variant="standard" fullWidth>
                 <InputLabel htmlFor="networkImage">Network Image</InputLabel>
                 <Input
                     id="networkImage"
-                    onChange={(e) => {
-                        selectedApp.attributes.configuration.network.imageUrl = e.target.value;
-                    }}
+                    onChange={(e) => setSelectedEVM({ ...selectedEVM, ...{ imageUrl: e.target.value } })}
+                    defaultValue={selectedEVM.imageUrl}
                     aria-describedby="networkImage-text"
-                    defaultValue={selectedApp?.attributes.configuration.network.imageUrl}
                 />
                 <FormHelperText id="networkImage-text">Text that will displayed as the application controller title</FormHelperText>
             </FormControl>
@@ -228,11 +242,9 @@ export default function Examples() {
                 <InputLabel htmlFor="networkName">Network Name</InputLabel>
                 <Input
                     id="networkName"
-                    onChange={(e) => {
-                        selectedApp.attributes.configuration.network.name = e.target.value;
-                    }}
+                    onChange={(e) => setSelectedEVM({ ...selectedEVM, ...{ name: e.target.value } })}
+                    defaultValue={selectedEVM.name}
                     aria-describedby="networkName-text"
-                    defaultValue={selectedApp?.attributes.configuration.network.name}
                 />
                 <FormHelperText id="networkName-text">Text that will displayed as the application controller title</FormHelperText>
             </FormControl>
@@ -240,11 +252,9 @@ export default function Examples() {
                 <InputLabel htmlFor="networkName">Network Chain Id</InputLabel>
                 <Input
                     id="networkId"
-                    onChange={(e) => {
-                        selectedApp.attributes.configuration.network.id = e.target.value;
-                    }}
+                    onChange={(e) => setSelectedEVM({ ...selectedEVM, ...{ id: e.target.value } })}
+                    defaultValue={selectedEVM.id}
                     aria-describedby="networkId-text"
-                    defaultValue={selectedApp?.attributes.configuration.network.id}
                 />
                 <FormHelperText id="networkId-text">Text that will displayed as the application controller title</FormHelperText>
             </FormControl>
@@ -252,11 +262,9 @@ export default function Examples() {
                 <InputLabel htmlFor="networkRpc">Network RPC URL</InputLabel>
                 <Input
                     id="networkRpc"
-                    onChange={(e) => {
-                        selectedApp.attributes.configuration.network.rpcUrl = e.target.value;
-                    }}
+                    onChange={(e) => setSelectedEVM({ ...selectedEVM, ...{ rpcUrl: e.target.value } })}
+                    defaultValue={selectedEVM.rpcUrl}
                     aria-describedby="networkRpc-text"
-                    defaultValue={selectedApp?.attributes.configuration.network.rpcUrl}
                 />
                 <FormHelperText id="networkRpc-text">Text that will displayed as the application controller title</FormHelperText>
             </FormControl>
@@ -264,11 +272,9 @@ export default function Examples() {
                 <InputLabel htmlFor="networkRpc">Network Currency Symbol</InputLabel>
                 <Input
                     id="networkSymbol"
-                    onChange={(e) => {
-                        selectedApp.attributes.configuration.network.currencySymbol = e.target.value;
-                    }}
+                    onChange={(e) => setSelectedEVM({ ...selectedEVM, ...{ currencySymbol: e.target.value } })}
+                    defaultValue={selectedEVM.currencySymbol}
                     aria-describedby="networkSymbol-text"
-                    defaultValue={selectedApp?.attributes.configuration.network.currencySymbol}
                 />
                 <FormHelperText id="networkSymbol-text">Text that will displayed as the application controller title</FormHelperText>
             </FormControl>
@@ -276,11 +282,9 @@ export default function Examples() {
                 <InputLabel htmlFor="networkRpc">Network Currency Name</InputLabel>
                 <Input
                     id="networkCurrencyName"
-                    onChange={(e) => {
-                        selectedApp.attributes.configuration.network.currencyName = e.target.value;
-                    }}
+                    onChange={(e) => setSelectedEVM({ ...selectedEVM, ...{ currencyName: e.target.value } })}
+                    defaultValue={selectedEVM.currencyName}
                     aria-describedby="networkCurrencyName-text"
-                    defaultValue={selectedApp?.attributes.configuration.network.currencyName}
                 />
                 <FormHelperText id="networkCurrencyName-text">Text that will displayed as the application controller title</FormHelperText>
             </FormControl>
@@ -288,55 +292,138 @@ export default function Examples() {
                 <InputLabel htmlFor="networkRpc">Network Explorer Url</InputLabel>
                 <Input
                     id="networkExplorerUrl"
-                    onChange={(e) => {
-                        selectedApp.attributes.configuration.network.blockExplorerUrl = e.target.value;
-                    }}
+                    onChange={(e) => setSelectedEVM({ ...selectedEVM, ...{ blockExplorerUrl: e.target.value } })}
+                    defaultValue={selectedEVM.blockExplorerUrl}
                     aria-describedby="networkExplorerUrl-text"
-                    defaultValue={selectedApp?.attributes.configuration.network.blockExplorerUrl}
                 />
                 <FormHelperText id="networkExplorerUrl-text">Text that will displayed as the application controller title</FormHelperText>
             </FormControl>
         </Grid>
     );
 
-    const onChangeEditor = (val) => {
-        console.log(val);
-    };
-
-    const abiForm = selectedApp.id && (
+    const networkForm = selectedApp.id && (
         <Grid item xs={12}>
+            <Grid container>
+                <Grid item sx={3}>
+                    <Paper
+                        elevation={selectedEVM.id === 43113 ? 1 : 4}
+                        sx={{ borderRadius: 1, my: 2, mr: 2, height: 50, minWidth: 160, cursor: 'pointer' }}
+                        onClick={() => setSelectedEVM(sampleConfig.network)}
+                    >
+                        <Grid container>
+                            <Grid item xs={5}>
+                                <img
+                                    height="50"
+                                    src="https://logowik.com/content/uploads/images/avalanche-coin-avax8592.jpg"
+                                    alt="Avalanche Fuji Testnet"
+                                />
+                            </Grid>
+                            <Grid item xs={6} sx={{ py: 1, pr: 1 }}>
+                                <Typography variant="h4">Avalanche</Typography>
+                                <Typography variant="body">Fuji Testnet</Typography>
+                            </Grid>
+                        </Grid>
+                    </Paper>
+                </Grid>
+                <Grid item sx={3}>
+                    <Paper
+                        elevation={selectedEVM.id !== 43113 ? 1 : 4}
+                        sx={{ borderRadius: 1, my: 2, mr: 2, height: 50, minWidth: 160, cursor: 'pointer' }}
+                        onClick={() => setSelectedEVM({})}
+                    >
+                        <Grid container>
+                            <Grid item xs={5} sx={{ py: 0.25, px: 1 }}>
+                                <img
+                                    height="45"
+                                    src="https://www.criptovalute24.com/wp-content/uploads/2019/08/Ethereum-ETH-aggiornamenti-Update.png"
+                                    alt="Custom EVM"
+                                />
+                            </Grid>
+                            <Grid item xs={6} sx={{ py: 1, pr: 1 }}>
+                                <Typography variant="h4">Custom</Typography>
+                                <Typography variant="body">EVM Net.</Typography>
+                            </Grid>
+                        </Grid>
+                    </Paper>
+                </Grid>
+            </Grid>
+            {selectedEVM.id !== 43113 && customNetwork}
+        </Grid>
+    );
+
+    const onChangeEditor = (val) => {
+        console.log(JSON.parse(val));
+        setAbiDefinition(JSON.parse(val));
+    };
+    console.log(selectedApp);
+    const abiForm = selectedApp.id && (
+        <Grid item xs={12} sx={{ my: 2 }}>
+            <Grid item sx={{ mb: 2 }}>
+                <Typography variant="h3">ABI</Typography>
+                <Typography variant="body">Please paste your contract ABI below</Typography>
+            </Grid>
             <AceEditor
                 width="100%"
                 mode="json"
                 theme="github"
                 onChange={onChangeEditor}
                 name="abiEditor"
-                value={JSON.stringify(selectedApp?.attributes?.configuration?.abi, null, 2)}
+                value={JSON.stringify(abiDefinition, null, 2)}
                 editorProps={{ $blockScrolling: true }}
             />
         </Grid>
     );
 
     const save = () => {
-        console.log(selectedApp);
+        selectedApp.attributes.configuration.network = selectedEVM;
+        selectedApp.attributes.configuration.abi = abiDefinition;
         selectedApp.set('owner', user.get('ethAddress'));
-        selectedApp.save().then((updatedApp) => {
-            console.log(updatedApp);
-            setSelectedApp({ id: '' });
-            setSelectedApp(updatedApp);
-        });
+        selectedApp.save().then(
+            (updatedApp) => {
+                console.log(updatedApp);
+                setSelectedApp({ id: '' });
+                setSelectedApp(updatedApp);
+                dispatch({
+                    type: SNACKBAR_OPEN,
+                    open: true,
+                    message: 'Changes saved',
+                    variant: 'alert',
+                    alertSeverity: 'success'
+                });
+            },
+            (error) => {
+                dispatch({
+                    type: SNACKBAR_OPEN,
+                    open: true,
+                    message: error.message,
+                    variant: 'alert',
+                    alertSeverity: 'error'
+                });
+            }
+        );
     };
 
     const deleteApp = () => {
         selectedApp.destroy().then(
-            (myObject) => {
-                // The object was deleted from the Moralis Cloud.
+            () => {
                 loadApps();
                 setSelectedApp({ id: '' });
+                dispatch({
+                    type: SNACKBAR_OPEN,
+                    open: true,
+                    message: 'Application deleted',
+                    variant: 'alert',
+                    alertSeverity: 'success'
+                });
             },
             (error) => {
-                // The delete failed.
-                // error is a Moralis.Error with an error code and message.
+                dispatch({
+                    type: SNACKBAR_OPEN,
+                    open: true,
+                    message: error.message,
+                    variant: 'alert',
+                    alertSeverity: 'error'
+                });
             }
         );
     };
@@ -356,7 +443,7 @@ export default function Examples() {
                             fontWeight: 'lighter'
                         }}
                     >
-                        Application
+                        About this App
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>{appForm}</AccordionDetails>
@@ -382,10 +469,22 @@ export default function Examples() {
                             fontWeight: 'lighter'
                         }}
                     >
-                        ABI Definition
+                        Smart Contract
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>{abiForm}</AccordionDetails>
+                <AccordionDetails>
+                    <FormControl variant="standard" fullWidth>
+                        <InputLabel htmlFor="contract">Contract</InputLabel>
+                        <Input
+                            id="contract"
+                            onChange={(e) => setSelectedEVM({ ...selectedEVM, ...{ contract: e.target.value } })}
+                            defaultValue={selectedEVM.contract}
+                            aria-describedby="contract-text"
+                        />
+                        <FormHelperText id="contract-text">The smart contract address deployed</FormHelperText>
+                    </FormControl>
+                    {abiForm}
+                </AccordionDetails>
             </Accordion>
         </Grid>
     );
@@ -408,6 +507,9 @@ export default function Examples() {
                         onChange={handleChange}
                         input={<OutlinedInput />}
                         MenuProps={MenuProps}
+                        sx={{
+                            minWidth: 200
+                        }}
                         inputProps={{ 'aria-label': 'Without label' }}
                     >
                         <MenuItem disabled value="">
@@ -431,12 +533,16 @@ export default function Examples() {
                         </MenuItem>
                     </Select>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Button color="primary" variant="contained" sx={{ mx: 1 }} onClick={save}>
-                        Save
-                    </Button>
-                    <Button color="error" variant="contained" onClick={deleteApp}>
-                        Delete
-                    </Button>
+                    {selectedApp.id && (
+                        <Button color="primary" variant="contained" sx={{ mx: 1, width: 125 }} onClick={save}>
+                            Save
+                        </Button>
+                    )}
+                    {selectedApp.id && (
+                        <Button color="error" variant="contained" sx={{ mx: 1, width: 125 }} onClick={deleteApp}>
+                            Delete
+                        </Button>
+                    )}
                 </Box>
                 <Container id="editor-container">
                     <Grid container>

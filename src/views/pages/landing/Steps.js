@@ -15,6 +15,9 @@ import SpeedTwoToneIcon from '@mui/icons-material/SpeedTwoTone';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BuildIcon from '@mui/icons-material/Build';
 import LaunchIcon from '@mui/icons-material/Launch';
+import TapAndPlayIcon from '@mui/icons-material/TapAndPlay';
+import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
 // =============================|| LANDING - FEATURE PAGE ||============================= //
 
@@ -49,11 +52,11 @@ const StepsPage = () => {
                                                     color: theme.palette.primary.main
                                                 }}
                                             >
-                                                <ShoppingCartIcon fontSize="large" />
+                                                <DeveloperModeIcon fontSize="large" />
                                             </Avatar>
                                         </Grid>
                                         <Grid item xs={12}>
-                                            <Typography variant="h3">Get NFC Stickers</Typography>
+                                            <Typography variant="h3">1. Deploy Smart Contract</Typography>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
@@ -82,11 +85,11 @@ const StepsPage = () => {
                                                     color: theme.palette.secondary.main
                                                 }}
                                             >
-                                                <BuildIcon fontSize="large" />
+                                                <MobileFriendlyIcon fontSize="large" />
                                             </Avatar>
                                         </Grid>
                                         <Grid item xs={12}>
-                                            <Typography variant="h3">Configure NFC Stickers</Typography>
+                                            <Typography variant="h3">2. Launch Controller dApp</Typography>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
@@ -116,11 +119,11 @@ const StepsPage = () => {
                                                     color: theme.palette.success.dark
                                                 }}
                                             >
-                                                <LaunchIcon fontSize="large" />
+                                                <TapAndPlayIcon fontSize="large" />
                                             </Avatar>
                                         </Grid>
                                         <Grid item xs={12}>
-                                            <Typography variant="h3">Deploy</Typography>
+                                            <Typography variant="h3">3. Deploy NFC Tags</Typography>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">

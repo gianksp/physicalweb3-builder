@@ -31,7 +31,7 @@ const FeaturePage = () => {
                                 <SubCard>
                                     <Grid container justifyContent="center" spacing={2}>
                                         <Grid item>
-                                            <img src="https://s10.gifyu.com/images/use_case_1.gif" alt="use" />
+                                            <img src="https://i.makeagif.com/media/11-25-2018/shTaNn.gif" alt="use" width="345" />
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="h3">Evertyhing is a tap away</Typography>
@@ -52,15 +52,19 @@ const FeaturePage = () => {
                                 <SubCard>
                                     <Grid container justifyContent="center" spacing={2}>
                                         <Grid item>
-                                            <img src="https://s10.gifyu.com/images/use_case_2.gif" alt="use" />
+                                            <img
+                                                src="https://thumbs.gfycat.com/AdorableVainJaeger-size_restricted.gif"
+                                                alt="use"
+                                                width="345"
+                                            />
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="h3">All things and places powered by Smart Contracts</Typography>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                By having physical objects being driven by smart contracts and dApps, we can unleash the
-                                                true power of smart objects.
+                                                By having physical objects and locations being driven by smart contracts and dApps, we can
+                                                unleash the true power of smart objects.
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -72,7 +76,11 @@ const FeaturePage = () => {
                                 <SubCard>
                                     <Grid container justifyContent="center" spacing={2}>
                                         <Grid item>
-                                            <img src="https://s10.gifyu.com/images/use_case_3.gif" alt="use" />
+                                            <img
+                                                src="https://thumbs.gfycat.com/SimilarFrightenedCapybara-max-1mb.gif"
+                                                alt="use"
+                                                width="345"
+                                            />
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="h3">Any object or place can transfer data or value</Typography>
