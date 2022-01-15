@@ -31,7 +31,7 @@ const FeaturePage = () => {
                                 <SubCard>
                                     <Grid container justifyContent="center" spacing={2}>
                                         <Grid item>
-                                            <img src="https://i.makeagif.com/media/11-25-2018/shTaNn.gif" alt="use" width="345" />
+                                            <img src="https://i.makeagif.com/media/11-25-2018/shTaNn.gif" alt="use" width="340" />
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="h3">Evertyhing is a tap away</Typography>
@@ -55,7 +55,7 @@ const FeaturePage = () => {
                                             <img
                                                 src="https://thumbs.gfycat.com/AdorableVainJaeger-size_restricted.gif"
                                                 alt="use"
-                                                width="345"
+                                                width="340"
                                             />
                                         </Grid>
                                         <Grid item xs={12}>
@@ -79,7 +79,7 @@ const FeaturePage = () => {
                                             <img
                                                 src="https://thumbs.gfycat.com/SimilarFrightenedCapybara-max-1mb.gif"
                                                 alt="use"
-                                                width="345"
+                                                width="340"
                                             />
                                         </Grid>
                                         <Grid item xs={12}>
