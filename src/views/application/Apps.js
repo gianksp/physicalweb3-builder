@@ -36,6 +36,8 @@ import 'ace-builds/src-noconflict/theme-github';
 
 import { ColorPicker, createColor } from 'mui-color';
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
 const Accordion = styled((props) => <MuiAccordion disableGutters elevation={0} square {...props} />)(({ theme }) => ({
     border: `1px solid ${theme.palette.divider}`,
     '&:not(:last-child)': {
@@ -92,7 +94,7 @@ export default function Examples() {
     });
     const [abiDefinition, setAbiDefinition] = useState(sampleConfig.abi);
     const [selectedEVM, setSelectedEVM] = useState({});
-    const { Moralis, user } = useMoralis();
+    const { Moralis, user, isAuthenticated } = useMoralis();
 
     const handleChange = (event) => {
         const {
@@ -489,9 +491,75 @@ export default function Examples() {
         </Grid>
     );
 
+    const openInMetamaskMobile = isMobile && !window.web3 && (
+        <Paper elevation="1" sx={{ borderRadius: 0, p: 2 }} xs={12}>
+            <span style={{ marginRight: '10px' }}>Your browser does not support Web3, please open with</span>
+            <a href="https://metamask.app.link/dapp/physicalweb3.com/dashboard" target="_blank" rel="noreferrer">
+                Metamask App
+            </a>
+        </Paper>
+    );
+
+    const openInMetamaskDesk = !isMobile && !window.web3 && (
+        <Paper elevation="1" sx={{ borderRadius: 0, p: 2 }} xs={12}>
+            <span style={{ marginRight: '10px' }}>Your browser does not support Web3, please install</span>
+            <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank" rel="noreferrer">
+                Metamask extension
+            </a>
+        </Paper>
+    );
+
+    const authenticate = window.web3 && !isAuthenticated && (
+        <Paper elevation="1" sx={{ borderRadius: 0, p: 2, cursor: 'pointer' }} xs={12} onClick={() => Moralis.authenticate()}>
+            <Typography>Sign in with Metamask</Typography>
+        </Paper>
+    );
+
+    const selector = window.web3 && isAuthenticated && (
+        <Select
+            displayEmpty
+            value={selectedApp.id}
+            onChange={handleChange}
+            input={<OutlinedInput />}
+            MenuProps={MenuProps}
+            sx={{
+                minWidth: 200
+            }}
+            xs={12}
+            md={6}
+            inputProps={{ 'aria-label': 'Without label' }}
+        >
+            <MenuItem disabled value="">
+                <em>Select your App</em>
+            </MenuItem>
+            {apps.map((applicationItem) => (
+                <MenuItem key={applicationItem.id} value={applicationItem.id}>
+                    <Grid>
+                        <Typography variant="h5">{applicationItem.attributes.name}</Typography>
+                        <Typography variant="body" fontSize="0.75em">
+                            <em>ID: {applicationItem.id}</em>
+                        </Typography>
+                    </Grid>
+                </MenuItem>
+            ))}
+            <MenuItem value="new" sx={{ backgroundColor: 'darkturquoise' }}>
+                <Typography variant="h4">Create new Application</Typography>
+                <ListItemIcon>
+                    <AddIcon fontSize="small" />
+                </ListItemIcon>
+            </MenuItem>
+        </Select>
+    );
+
     return (
         <Container>
             <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing} sx={{ mt: 0, mb: 10, pl: 3, pr: 3 }}>
+                <Grid item xs={12}>
+                    {openInMetamaskMobile}
+                </Grid>
+                <Grid item xs={12}>
+                    {openInMetamaskDesk}
+                </Grid>
                 <Box
                     sx={{
                         width: '100%',
@@ -501,37 +569,12 @@ export default function Examples() {
                         }
                     }}
                 >
-                    <Select
-                        displayEmpty
-                        value={selectedApp.id}
-                        onChange={handleChange}
-                        input={<OutlinedInput />}
-                        MenuProps={MenuProps}
-                        sx={{
-                            minWidth: 200
-                        }}
-                        inputProps={{ 'aria-label': 'Without label' }}
-                    >
-                        <MenuItem disabled value="">
-                            <em>Select your App</em>
-                        </MenuItem>
-                        {apps.map((applicationItem) => (
-                            <MenuItem key={applicationItem.id} value={applicationItem.id}>
-                                <Grid>
-                                    <Typography variant="h5">{applicationItem.attributes.name}</Typography>
-                                    <Typography variant="body" fontSize="0.75em">
-                                        <em>ID: {applicationItem.id}</em>
-                                    </Typography>
-                                </Grid>
-                            </MenuItem>
-                        ))}
-                        <MenuItem value="new" sx={{ backgroundColor: 'darkturquoise' }}>
-                            <Typography variant="h4">Create new Application</Typography>
-                            <ListItemIcon>
-                                <AddIcon fontSize="small" />
-                            </ListItemIcon>
-                        </MenuItem>
-                    </Select>
+                    <Grid item xs={12}>
+                        {authenticate}
+                    </Grid>
+                    <Grid item sx={12}>
+                        {selector}
+                    </Grid>
                     <Box sx={{ flexGrow: 1 }} />
                     {selectedApp.id && (
                         <Button color="primary" variant="contained" sx={{ mx: 1, width: 125 }} onClick={save}>
