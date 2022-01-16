@@ -17,8 +17,8 @@ export default function Examples() {
         appCatalog.forEach((app) => {
             console.log(app);
             list.push(
-                <Grid xs={12} md={6} xxl={3}>
-                    <Box sx={{ m: 2 }}>
+                <Grid item xs={12} md={6} xxl={3} key={app.id}>
+                    <Box>
                         <DetailsApp app={app} />
                     </Box>
                 </Grid>
@@ -28,22 +28,21 @@ export default function Examples() {
     };
 
     return (
-        <Container>
-            <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing} sx={{ mt: 0, mb: 10, pl: 3, pr: 3 }}>
-                <Typography
-                    variant="h1"
-                    sx={{
-                        fontSize: '3rem',
-                        fontWeight: 900,
-                        lineHeight: 1.4,
-                        mb: 2
-                    }}
-                >
-                    Examples
-                </Typography>
-                <Grid container sx={{ pl: 2 }}>
-                    {listApps()}
+        <Container sx={{ pb: 5 }}>
+            <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing}>
+                <Grid item xs={12}>
+                    <Typography
+                        variant="h1"
+                        sx={{
+                            fontSize: '3rem',
+                            fontWeight: 900,
+                            lineHeight: 1.4
+                        }}
+                    >
+                        Examples
+                    </Typography>
                 </Grid>
+                {listApps()}
             </Grid>
         </Container>
     );

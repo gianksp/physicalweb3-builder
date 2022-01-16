@@ -51,10 +51,25 @@ const Accordion = styled((props) => <MuiAccordion disableGutters elevation={0} s
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
+    root: {
+        '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'blue'
+        },
+        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'red'
+        }
+    },
     PaperProps: {
         style: {
             maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250
+            width: '100%',
+            borderRadius: 2
+        }
+    },
+    InputProps: {
+        style: {
+            width: '100%',
+            borderRadius: 2
         }
     }
 };
@@ -94,12 +109,14 @@ export default function Examples() {
     });
     const [abiDefinition, setAbiDefinition] = useState(sampleConfig.abi);
     const [selectedEVM, setSelectedEVM] = useState({});
-    const { Moralis, user, isAuthenticated } = useMoralis();
+    const { Moralis, user, isAuthenticated, logout, authenticate } = useMoralis();
 
     const handleChange = (event) => {
         const {
             target: { value }
         } = event;
+
+        if (!isAuthenticated) return;
 
         // Is new?
         if (value === 'new') {
@@ -167,7 +184,7 @@ export default function Examples() {
                 <FormHelperText id="appName-text">Text that will displayed as the application controller title</FormHelperText>
             </FormControl>
             <FormControl variant="standard" fullWidth>
-                <InputLabel htmlFor="imageUrl">Image Url</InputLabel>
+                <InputLabel htmlFor="imageUrl">Image URL</InputLabel>
                 <Input
                     id="imageUrl"
                     onChange={(e) => {
@@ -176,7 +193,7 @@ export default function Examples() {
                     aria-describedby="imageUrl-text"
                     defaultValue={selectedApp?.attributes.configuration.about.imageUrl}
                 />
-                <FormHelperText id="imageUrl-text">Text that will displayed as the application controller title</FormHelperText>
+                <FormHelperText id="imageUrl-text">Image banner url that will be displayed in the about page</FormHelperText>
             </FormControl>
             <FormControl variant="standard" fullWidth>
                 <InputLabel htmlFor="title">Title</InputLabel>
@@ -188,7 +205,7 @@ export default function Examples() {
                     aria-describedby="title-text"
                     defaultValue={selectedApp?.attributes.configuration.about.title}
                 />
-                <FormHelperText id="title-text">Text that will displayed as the application controller title</FormHelperText>
+                <FormHelperText id="title-text">Text header that will be displayed as title for the description</FormHelperText>
             </FormControl>
             <FormControl variant="standard" fullWidth>
                 <InputLabel htmlFor="description">Description</InputLabel>
@@ -201,8 +218,12 @@ export default function Examples() {
                     aria-describedby="description-text"
                     defaultValue={selectedApp?.attributes.configuration.about.description}
                 />
-                <FormHelperText id="description-text">Text that will displayed as the application controller title</FormHelperText>
+                <FormHelperText id="description-text">Descriptive text about your App. What is it about? how do you use it?</FormHelperText>
             </FormControl>
+            <Typography sx={{ mt: 2, mb: 1 }}>App Colors</Typography>
+            <Typography variant="body" fontSize="0.85em">
+                Primary color (tab background)
+            </Typography>
             <FormControl variant="standard" fullWidth>
                 <ColorPicker
                     value={appPrimaryColor}
@@ -214,6 +235,9 @@ export default function Examples() {
                     }}
                 />
             </FormControl>
+            <Typography variant="body" fontSize="0.85em">
+                Secondary color (tab fonts)
+            </Typography>
             <FormControl variant="standard" fullWidth>
                 <ColorPicker
                     value={appFontColor}
@@ -436,7 +460,7 @@ export default function Examples() {
     };
 
     const formEditor = selectedApp.id && (
-        <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing} sx={{ mt: 4, mb: 10, p: 0 }}>
+        <Grid item>
             <Accordion expanded={expanded === 'appPanel'} onChange={handleChangeAcc('appPanel')} sx={{ width: '100%' }}>
                 <AccordionSummary aria-controls="appPanel-content" id="appPanel-header">
                     <Typography
@@ -492,7 +516,7 @@ export default function Examples() {
     );
 
     const openInMetamaskMobile = isMobile && !window.web3 && (
-        <Paper elevation="1" sx={{ borderRadius: 0, p: 2 }} xs={12}>
+        <Paper elevation={1} sx={{ borderRadius: 0, p: 2, backgroundColor: 'ivory' }} xs={12}>
             <span style={{ marginRight: '10px' }}>Your browser does not support Web3, please open with</span>
             <a href="https://metamask.app.link/dapp/physicalweb3.com/dashboard" target="_blank" rel="noreferrer">
                 Metamask App
@@ -501,7 +525,7 @@ export default function Examples() {
     );
 
     const openInMetamaskDesk = !isMobile && !window.web3 && (
-        <Paper elevation="1" sx={{ borderRadius: 0, p: 2 }} xs={12}>
+        <Paper elevation={1} sx={{ borderRadius: 0, p: 2, backgroundColor: 'ivory' }} xs={12}>
             <span style={{ marginRight: '10px' }}>Your browser does not support Web3, please install</span>
             <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank" rel="noreferrer">
                 Metamask extension
@@ -509,13 +533,53 @@ export default function Examples() {
         </Paper>
     );
 
-    const authenticate = window.web3 && !isAuthenticated && (
-        <Paper elevation="1" sx={{ borderRadius: 0, p: 2, cursor: 'pointer' }} xs={12} onClick={() => Moralis.authenticate()}>
+    const onAuthenticate = () => {
+        // console.log('authenticating');
+        authenticate().then(() => {
+            const currentUser = Moralis.User.current();
+            console.log(currentUser);
+        });
+    };
+
+    const authenticatePanel = window.web3 && user === null && (
+        <Paper elevation={1} sx={{ borderRadius: 0, p: 2, cursor: 'pointer' }} xs={12} onClick={onAuthenticate}>
             <Typography>Sign in with Metamask</Typography>
         </Paper>
     );
 
-    const selector = window.web3 && isAuthenticated && (
+    const onLogout = () => {
+        logout().then(() => {
+            const currentUser = Moralis.User.current();
+            setSelectedApp({ id: '' });
+            console.log(currentUser);
+        });
+    };
+
+    const authenticated = user !== null && (
+        <Paper elevation={1} sx={{ borderRadius: 0, p: 2, cursor: 'pointer', background: 'ivory' }} xs={12}>
+            <Grid container>
+                <Grid item xs={12} md={6}>
+                    <Grid item xs={12}>
+                        <Typography variant="body" fontSize="0.75em" xs={12}>
+                            <strong>User ID:</strong> {user.id}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography variant="body" fontSize="0.75em" xs={12}>
+                            <strong>{user.get('ethAddress')}</strong>
+                        </Typography>
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <Button onClick={onLogout} variant="contained" fullWidth size="small" color="secondary">
+                        Logout
+                    </Button>
+                </Grid>
+            </Grid>
+        </Paper>
+    );
+
+    const selector = window.web3 && user !== null && (
         <Select
             displayEmpty
             value={selectedApp.id}
@@ -523,7 +587,8 @@ export default function Examples() {
             input={<OutlinedInput />}
             MenuProps={MenuProps}
             sx={{
-                minWidth: 200
+                minWidth: 200,
+                my: 1
             }}
             xs={12}
             md={6}
@@ -534,7 +599,7 @@ export default function Examples() {
             </MenuItem>
             {apps.map((applicationItem) => (
                 <MenuItem key={applicationItem.id} value={applicationItem.id}>
-                    <Grid>
+                    <Grid item xs={12}>
                         <Typography variant="h5">{applicationItem.attributes.name}</Typography>
                         <Typography variant="body" fontSize="0.75em">
                             <em>ID: {applicationItem.id}</em>
@@ -552,55 +617,45 @@ export default function Examples() {
     );
 
     return (
-        <Container>
-            <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing} sx={{ mt: 0, mb: 10, pl: 3, pr: 3 }}>
-                <Grid item xs={12}>
-                    {openInMetamaskMobile}
-                </Grid>
-                <Grid item xs={12}>
-                    {openInMetamaskDesk}
-                </Grid>
-                <Box
-                    sx={{
-                        width: '100%',
-                        display: 'flex',
-                        [theme.breakpoints.down('md')]: {
-                            width: 'auto'
-                        }
-                    }}
-                >
-                    <Grid item xs={12}>
-                        {authenticate}
-                    </Grid>
-                    <Grid item sx={12}>
-                        {selector}
-                    </Grid>
-                    <Box sx={{ flexGrow: 1 }} />
-                    {selectedApp.id && (
-                        <Button color="primary" variant="contained" sx={{ mx: 1, width: 125 }} onClick={save}>
-                            Save
-                        </Button>
-                    )}
-                    {selectedApp.id && (
-                        <Button color="error" variant="contained" sx={{ mx: 1, width: 125 }} onClick={deleteApp}>
-                            Delete
-                        </Button>
-                    )}
-                </Box>
-                <Container id="editor-container">
-                    <Grid container>
-                        <Grid item xs={12} md={6}>
-                            {selectedApp.id && <DetailsApp app={selectedApp} />}
-                            {formEditor}
-                        </Grid>
-                        <Grid item xs={12} md={6} id="mobile-frame">
-                            {selectedApp.id && (
-                                <MobileDevicePreview controllerUrl={`https://g0aouoqdk2vt.usemoralis.com?appId=${selectedApp.id}`} />
-                            )}
-                        </Grid>
-                    </Grid>
-                </Container>
+        <Grid container sx={{ p: 2 }} spacing={0.2}>
+            <Grid item xs={12}>
+                {authenticated}
             </Grid>
-        </Container>
+            <Grid item xs={12}>
+                {selector}
+            </Grid>
+            <Grid item xs={6}>
+                {selectedApp.id && (
+                    <Button color="primary" variant="contained" onClick={save} fullwidth sx={{ width: '100%', borderRadius: 0 }}>
+                        Save
+                    </Button>
+                )}
+            </Grid>
+            <Grid item xs={6}>
+                {selectedApp.id && (
+                    <Button color="error" variant="contained" onClick={deleteApp} fullwidth sx={{ width: '100%', borderRadius: 0 }}>
+                        Delete
+                    </Button>
+                )}
+            </Grid>
+            <Grid item xs={12}>
+                {openInMetamaskMobile}
+            </Grid>
+            <Grid item xs={12}>
+                {openInMetamaskDesk}
+            </Grid>
+            <Grid item xs={12}>
+                {authenticatePanel}
+            </Grid>
+            <Grid item xs={12} md={6}>
+                {selectedApp.id && <DetailsApp app={selectedApp} />}
+            </Grid>
+            <Grid item md={6} id="mobile-frame">
+                {selectedApp.id && <MobileDevicePreview controllerUrl={`https://app.physicalweb3.com?appId=${selectedApp.id}`} />}
+            </Grid>
+            <Grid item xs={12} md={6} sx={{ minHeight: { xs: 500 } }}>
+                {formEditor}
+            </Grid>
+        </Grid>
     );
 }

@@ -81,11 +81,13 @@ const HeaderPage = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'flex' } }}>
-                    <Box sx={{ position: 'relative' }}>
-                        <Box>
-                            <img src="https://s10.gifyu.com/images/ezgif.com-gif-maker564eb7fd421e127f.gif" alt="Physical Web3" />
-                        </Box>
+                <Grid item xs={12} md={7} sx={{ display: { md: 'flex' }, maxWidth: '100%' }}>
+                    <Box sx={{ position: 'relative' }} style={{ 'text-align': 'center' }}>
+                        <img
+                            src="https://s10.gifyu.com/images/ezgif.com-gif-maker564eb7fd421e127f.gif"
+                            alt="Physical Web3"
+                            style={{ margin: '0 auto', maxWidth: '100%' }}
+                        />
                     </Box>
                 </Grid>
             </Grid>

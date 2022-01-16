@@ -5,27 +5,29 @@ import QRCode from 'react-qr-code';
 const getAppUrl = (id) => `https://app.physicalweb3.com?appId=${id}`;
 
 const DetailsApp = ({ app }) => (
-    <Paper sx={{ mt: 5, borderRadius: 0, p: 3, ml: -3 }} elevation="4">
-        <Grid item sx={{ mb: 3 }}>
-            <Typography variant="h2">{app.attributes.configuration.about.appName}</Typography>
-            <Typography variant="h6">
-                <a href={getAppUrl(app.id)}>{getAppUrl(app.id)}</a>
-            </Typography>
-            <Typography variant="body">{app.attributes.configuration.network.name}</Typography>
+    <Paper sx={{ borderRadius: 0, p: 3 }} elevation="4">
+        <Grid container spacing={0.3}>
+            <Grid item sx={{ mb: 3 }} xs={12}>
+                <Typography variant="h3">{app.attributes.configuration.about.appName}</Typography>
+                <Typography variant="h6" fontSize="0.65em">
+                    <a href={getAppUrl(app.id)}>{getAppUrl(app.id)}</a>
+                </Typography>
+                <Typography variant="body">{app.attributes.configuration.network.name}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+                <QRCode size="128" value={getAppUrl(app.id)} />
+                <img
+                    src={app.attributes.configuration.about.imageUrl}
+                    alt="banner"
+                    style={{
+                        maxHeight: '128px',
+                        maxWidth: '50%',
+                        marginLeft: '15px'
+                    }}
+                />
+            </Grid>
+            <Typography fontSize="0.65em">Last updated {app.attributes.updatedAt.toString()}</Typography>
         </Grid>
-        <Grid item>
-            <QRCode size="128" value={getAppUrl(app.id)} />
-            <img
-                src={app.attributes.configuration.about.imageUrl}
-                alt="banner"
-                style={{
-                    maxHeight: '128px',
-                    maxWidth: '60%',
-                    marginLeft: 15
-                }}
-            />
-        </Grid>
-        <Typography fontSize="0.65em">Last updated {app.attributes.updatedAt.toString()}</Typography>
     </Paper>
 );
 

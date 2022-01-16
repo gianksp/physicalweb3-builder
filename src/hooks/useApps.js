@@ -4,10 +4,13 @@ import { useMoralis } from 'react-moralis';
 // ==============================|| ELEMENT REFERENCE HOOKS  ||============================== //
 
 const useApps = () => {
-    const { Moralis, isAuthenticated, user } = useMoralis();
+    const { Moralis, isAuthenticated, user, logout } = useMoralis();
     const [apps, setApps] = useState([]);
 
+    // logout();
+
     const loadApps = async () => {
+        if (!isAuthenticated) return;
         // Example appId=Hu6TBckWYLh2cHHFgPpEP37W
         const ownerAddress = user.get('ethAddress');
         const Controller = Moralis.Object.extend('Controller');
@@ -22,7 +25,7 @@ const useApps = () => {
         if (isAuthenticated && user) {
             loadApps();
         } else {
-            Moralis.authenticate();
+            // Moralis.authenticate();
         }
     }, [isAuthenticated, user]);
 

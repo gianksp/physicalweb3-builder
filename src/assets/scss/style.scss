@@ -146,6 +146,19 @@
     }
 }
 
+.MuiOutlinedInput-root {
+    width: 100% !important;
+    border-radius: 2px;
+}
+
+.Input-notchedOutline {
+    border-radius: 2px !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-radius: 2px !important;
+}
+
 .video-container {
     overflow: hidden;
     position: relative;
