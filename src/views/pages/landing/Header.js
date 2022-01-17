@@ -74,9 +74,82 @@ const HeaderPage = () => {
                                         lineHeight: 1.4
                                     }}
                                 >
-                                    The Physical Web 3 is a decentralized approach to enable quick and seamless interactions with physical
-                                    objects and locations powered by smart contracts, making everything smart.
+                                    The Physical Web 3 is a decentralized approach to enabling quick and seamless interactions with physical
+                                    objects and locations powered by smart contracts.
                                 </Typography>
+                            </motion.div>
+                        </Grid>
+                        <Grid item xs={12} sx={{ my: 3.25 }}>
+                            <motion.div
+                                initial={{ opacity: 0, translateY: 550 }}
+                                animate={{ opacity: 1, translateY: 0 }}
+                                transition={{
+                                    type: 'spring',
+                                    stiffness: 150,
+                                    damping: 30,
+                                    delay: 0.4
+                                }}
+                            >
+                                <Grid container spacing={2} sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}>
+                                    <Grid item>
+                                        <AnimateButton>
+                                            <Button
+                                                component={RouterLink}
+                                                to="/dashboard"
+                                                size="large"
+                                                variant="contained"
+                                                color="secondary"
+                                            >
+                                                Start Building
+                                            </Button>
+                                        </AnimateButton>
+                                    </Grid>
+                                    <Grid item>
+                                        <Button component={RouterLink} to="/examples" size="large" variant="text">
+                                            Live Examples
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </motion.div>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <motion.div
+                                initial={{ opacity: 0, translateY: 550 }}
+                                animate={{ opacity: 1, translateY: 0 }}
+                                transition={{
+                                    type: 'spring',
+                                    stiffness: 150,
+                                    damping: 30,
+                                    delay: 0.6
+                                }}
+                            >
+                                <Grid
+                                    container
+                                    alignItems="center"
+                                    spacing={2}
+                                    sx={{ [theme.breakpoints.down('lg')]: { display: 'inline-flex', width: 'auto' } }}
+                                >
+                                    <Grid item>
+                                        <Avatar
+                                            alt="MUI Logo"
+                                            color="primary"
+                                            sx={{
+                                                width: 50,
+                                                height: 50,
+                                                padding: 0.5,
+                                                background:
+                                                    theme.palette.mode === 'dark' ? theme.palette.dark.light : theme.palette.primary.light
+                                            }}
+                                            variant="rounded"
+                                            src="https://moralis.io/wp-content/uploads/hackathon/moralisAvax2.svg"
+                                        />
+                                    </Grid>
+                                    <Grid item xs zeroMinWidth>
+                                        <Typography variant="h4" component="div" color="inherit" sx={{ fontWeight: 400, lineHeight: 1.4 }}>
+                                            <b>Powered by Moralis</b> - A project for the Moralis & Avalanche hackathon, 2022.
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
                             </motion.div>
                         </Grid>
                     </Grid>

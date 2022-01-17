@@ -93,10 +93,8 @@ const StepsPage = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                Leverage any existing mobile NFC tag editor app such as NFC Tools on{' '}
-                                                <a href="https://play.google.com/store/apps/details?id=com.wakdev.wdnfc&gl=IE">Android</a>{' '}
-                                                and <a href="https://apps.apple.com/us/app/nfc-tools/id1252962749">iOS</a> and configure it
-                                                to open your dApp controller URL.
+                                                Create a mobile friendly user interface that allows any user to access the functionalities
+                                                of the smart contract using our <a href="/dashboard">PW3App builder</a>.
                                             </Typography>
                                         </Grid>
                                     </Grid>
