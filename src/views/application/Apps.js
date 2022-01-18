@@ -459,6 +459,14 @@ export default function Examples() {
         setExpanded(newExpanded ? panel : false);
     };
 
+    const getPreviewUrl = () => {
+        console.log(selectedApp);
+        console.log('??????????????????????');
+        const t = `https://app.physicalweb3.com?appId=${selectedApp.id}`;
+        console.log(t);
+        return t;
+    };
+
     const formEditor = selectedApp.id && (
         <Grid item>
             <Accordion expanded={expanded === 'appPanel'} onChange={handleChangeAcc('appPanel')} sx={{ width: '100%' }}>
@@ -651,7 +659,7 @@ export default function Examples() {
                 {selectedApp.id && <DetailsApp app={selectedApp} />}
             </Grid>
             <Grid item md={6} id="mobile-frame">
-                {selectedApp.id && <MobileDevicePreview controllerUrl={`https://app.physicalweb3.com?appId=${selectedApp.id}`} />}
+                {selectedApp.id && <MobileDevicePreview controllerUrl={getPreviewUrl()} />}
             </Grid>
             <Grid item xs={12} md={6} sx={{ minHeight: { xs: 500 } }}>
                 {formEditor}

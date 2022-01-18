@@ -44,6 +44,26 @@ export default function CustomizedAccordions() {
 
     const questions = [
         {
+            question: 'What is actually the Physical Web3',
+            answer:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+        },
+        {
+            question: "How is it related to Google's Physical Web",
+            answer:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+        },
+        {
+            question: 'What is a Smart Object',
+            answer:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+        },
+        {
+            question: 'What is a Smart Object Controller',
+            answer:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+        },
+        {
             question: 'Why is the Physical Web3 built on top of the Web3?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
@@ -59,6 +79,11 @@ export default function CustomizedAccordions() {
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
+            question: 'What other technologies can we use to enable discoverability of Smart Object Controllers',
+            answer:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+        },
+        {
             question: 'What does the decentralization of the Physical Web3 refer to?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
@@ -69,87 +94,12 @@ export default function CustomizedAccordions() {
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
-            question: 'What is the difference of The Physical Web3 and The Physical Web?',
+            question: 'Which platforms and blockchain networks are supported?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         },
         {
-            question: 'Which platforms are supported?',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #2',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #3',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #1',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #2',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #3',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #1',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #2',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #3',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #1',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #2',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #3',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #1',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #2',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #3',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
-        },
-        {
-            question: 'Collapsible Group Item #1',
+            question: 'Is it Free?',
             answer:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
         }

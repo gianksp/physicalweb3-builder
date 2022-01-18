@@ -46,9 +46,9 @@ const HeaderPage = () => {
                                         lineHeight: 1.4
                                     }}
                                 >
-                                    Walk up and use
+                                    Walk Up And Use
                                     <Box component="span" sx={{ ml: 2, color: theme.palette.primary.main }}>
-                                        anything
+                                        <em>Anything</em>
                                     </Box>
                                 </Typography>
                             </motion.div>

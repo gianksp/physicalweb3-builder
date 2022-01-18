@@ -60,9 +60,16 @@ const StepsPage = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                NFC tags are small stickers, round-or-square-shaped, about the size of a large coin,
-                                                compatible with NFC-enabled devices like smartphones and tablets. They are relatively cheap
-                                                and allows you to transfer data between two devices that are in close proximity.
+                                                Launch your EVM compatible smart contract. You can use our
+                                                <a style={{ margin: '0px 2px' }} href="/resources">
+                                                    samples
+                                                </a>
+                                                to quickly test the functionality of this prototype. Visit our
+                                                <a style={{ margin: '0px 2px' }} href="/resources">
+                                                    resources
+                                                </a>
+                                                section to learn more on how to do this. What you need for the physical Web3 is a smart
+                                                contract address and the ABI.
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -93,8 +100,10 @@ const StepsPage = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                Create a mobile friendly user interface that allows any user to access the functionalities
-                                                of the smart contract using our <a href="/dashboard">PW3App builder</a>.
+                                                Use our <a href="/dashboard">PW3App builder</a> to generate a mobile UI for any EVM based
+                                                smart contract. Is as simple as creating a new app and setting up the smart contract address
+                                                and the ABI. It will generate a functional mobile ready interface to access all smart
+                                                contract functions.
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -125,8 +134,13 @@ const StepsPage = () => {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="body2">
-                                                Place your stickers in a physical space. Anyone who passes by with a mobile device will be
-                                                able to interact with the dApp controlling the device or location.
+                                                Once we have a smart contract and a mobile interface to access it, we need to enable
+                                                discoverability. Visit our
+                                                <a style={{ margin: '0px 2px' }} href="/resources">
+                                                    resources
+                                                </a>
+                                                to learn more about how to acquire and write NFC tags to surface your dApp controller url.
+                                                It is a very simple exercise and unexpensive.
                                             </Typography>
                                         </Grid>
                                     </Grid>
