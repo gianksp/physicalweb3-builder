@@ -10,7 +10,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-import logoDark from 'assets/images/logo-white.svg';
+import discord from 'assets/images/discord.svg';
 
 // styles
 const FooterWrapper = styled('div')(({ theme }) => ({
@@ -56,9 +56,6 @@ const FooterPage = () => {
             <FooterWrapper>
                 <Container>
                     <Grid container alignItems="center" spacing={gridSpacing}>
-                        <Grid item xs={12} sm={4}>
-                            <img src={logoDark} alt="Berry" width="100" />
-                        </Grid>
                         <Grid item xs={12} sm={8}>
                             <Grid
                                 container
@@ -67,12 +64,12 @@ const FooterPage = () => {
                                 sx={{ justifyContent: 'flex-end', [theme.breakpoints.down('md')]: { justifyContent: 'center' } }}
                             >
                                 <Grid item>
-                                    <FooterLink href="https://blog.berrydashboard.io/" target="_blank" underline="hover">
-                                        <InstagramIcon />
-                                        Blog
+                                    <FooterLink href="https://discord.gg/W6PZaUgUYr" target="_blank" underline="hover">
+                                        <img src={discord} alt="discord" style={{ height: 36, marginRight: 5 }} />
+                                        Join our Discord!
                                     </FooterLink>
                                 </Grid>
-                                <Grid item>
+                                {/* <Grid item>
                                     <FooterLink href="https://www.facebook.com/codedthemes" target="_blank" underline="hover">
                                         <FacebookIcon />
                                         Facebook
@@ -83,7 +80,7 @@ const FooterPage = () => {
                                         <TwitterIcon />
                                         Twitter
                                     </FooterLink>
-                                </Grid>
+                                </Grid> */}
                             </Grid>
                         </Grid>
                     </Grid>

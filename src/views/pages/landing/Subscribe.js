@@ -90,7 +90,8 @@ const Subscribe = () => {
                                 </Grid>
                                 <Grid item sm={12}>
                                     <Typography variant="body2">
-                                        Subscribe for the latest news &#38; updates of Berry admin template. We never send spam newsletters.
+                                        Subscribe for the latest news &#38; updates of Physical Web3. We will keep you up to date of any
+                                        innovation.
                                     </Typography>
                                 </Grid>
                                 <Grid item sm={12}>

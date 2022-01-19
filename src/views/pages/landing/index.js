@@ -6,7 +6,7 @@ import Header from './Header';
 import Feature from './Feature';
 import Demos from './Demos';
 import Layouts from './Layouts';
-import KeyFeature from './KeyFeature';
+import Test from './Test';
 import Steps from './Steps';
 import Subscribe from './Subscribe';
 import Footer from './Footer';
@@ -45,10 +45,10 @@ const Landing = () => (
         </SecondWrapper>
         <SecondWrapper>
             <Layouts />
-        </SecondWrapper>
+        </SecondWrapper>  */}
         <SecondWrapper>
-            <KeyFeature />
-        </SecondWrapper> */}
+            <Test />
+        </SecondWrapper>
         <SecondWrapper>
             <Steps />
         </SecondWrapper>
