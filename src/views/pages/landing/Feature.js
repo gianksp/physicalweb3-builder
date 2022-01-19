@@ -113,10 +113,10 @@ const FeaturePage = () => {
                             }}
                         >
                             The Physical Web3 enables you to interact with objects in the environment around you. These objects are embedded
-                            with an NFC (Near Field Communication) tag or sticker, which is a short range, contactless connection device
-                            that can broadcast URL addresses. When users get their mobiles close to the tag a message pulls down from the
-                            top of the device asking if they want to open their browser. When they tap the message the respective dApp
-                            controller is launched and they can interact with the smart contract driving the smart object.
+                            with a QRCode or an NFC (Near Field Communication) tag or sticker, which is a short range, contactless
+                            connection device that can broadcast URL addresses. When users get their mobiles close to the tag a message
+                            pulls down from the top of the device asking if they want to open their browser. When they tap the message the
+                            respective dApp controller is launched and they can interact with the smart contract driving the smart object.
                         </Typography>
                     </Grid>
                     <Grid item xs={12}>
