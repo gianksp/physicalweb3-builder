@@ -46,62 +46,60 @@ export default function CustomizedAccordions() {
         {
             question: 'What is actually the Physical Web3',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'The Physical Web3 is a permissionless platform that allows users to expose smart contract functionalities through a mobile friendly web app designed via url, embedding it into NFC tags or QR Codes'
         },
         {
             question: "How is it related to Google's Physical Web",
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'It is inspired in Google Physical Web that was deprecated a few years ago. It tries to go beyond by not only addressing discoverability of web apps but by also powering data and value transmission leveraging blockchain'
         },
         {
             question: 'What is a Smart Object',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'When talking about Smart Objects and Smart Locations, we make reference to any physical thing or place that has a dApp controller powering it, and this dApp controller is easily accessible by users without the need of installing additional apps'
         },
         {
             question: 'What is a Smart Object Controller',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'Are the dApps that powe the Smart Objects and Places. With our platform anyone can create a controller for any smart contract. The controller is basically a configurable mobile web app that exposes the smart contract functions.'
         },
         {
             question: 'Why is the Physical Web3 built on top of the Web3?',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'Smart contract platforms excel at transfering data and value. To achieve this in Web 2.0 we would need payment gateways, databases, services and APIs to integrate with. With blockchain is as simple as creating a smart contract and creating its controller.'
         },
         {
             question: 'Why does the Physical Web3 use URLs?',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'URLs can be shared, embedded in NFC Tags, QRCodes, Eddystone Beacons, etc. They are an easy way to power discoverability.'
         },
         {
             question: 'Why does Physical Web3 use NFC?',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'NFC Tags are cheap and configurable. Whereas a QRCode cannot be edited and needs to be replaced, NFC provide the flexibility to be modified.'
         },
         {
             question: 'What other technologies can we use to enable discoverability of Smart Object Controllers',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'As mentioned before, any technology that facilittes dicoverability such as QRCodes, Eddystone Beacons, NFC Tags, Ultra wide band, etc.'
         },
         {
             question: 'What does the decentralization of the Physical Web3 refer to?',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+            answer: 'It refers to the use of smart contract to power transfer of data and value in a permissionless fashion.'
         },
         {
             question: 'How does the Physical Web3 address potential security concerns?',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'There is a lot to cover here as we move on with the project. We leverage EVM compatible smart contract platforms to provide the backend functionality and rely on their security. At the same time we are responsible for providing security at the UI level. We need to deep dive here still to identify risks and address issues.'
         },
         {
             question: 'Which platforms and blockchain networks are supported?',
-            answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+            answer: 'By default Avalanche Fuji Testnet is preselected, however it can be configured for any EVM platform'
         },
         {
             question: 'Is it Free?',
             answer:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit ametamet blandit leo lobortis eget.'
+                'Our goal now is to scale our user base. We need to balance that out with the infrastructure costs to identify if we need to change our strategy. However, at first glance we would like it to offer a free model that is extensive enough for every use.'
         }
     ];
 

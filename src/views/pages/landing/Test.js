@@ -52,6 +52,35 @@ const TestPage = () => {
                     <Grid container justifyContent="center" spacing={gridSpacing}>
                         <Grid item xs={12} md={6}>
                             <FadeInWhenVisible>
+                                <Grid
+                                    container
+                                    alignItems="center"
+                                    spacing={2}
+                                    sx={{ pl: 2 }}
+                                    style={{ position: 'relative', marginTop: 2 }}
+                                >
+                                    <img
+                                        src="https://cdn.dribbble.com/users/3377233/screenshots/6226947/jamming.gif"
+                                        alt="performer"
+                                        style={{
+                                            maxWidth: '100%'
+                                        }}
+                                    />
+                                    <img
+                                        src={imgbase}
+                                        alt="performer"
+                                        style={{
+                                            position: 'absolute',
+                                            width: '30%',
+                                            left: 20,
+                                            bottom: 0
+                                        }}
+                                    />
+                                </Grid>
+                            </FadeInWhenVisible>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <FadeInWhenVisible>
                                 <SubCard>
                                     <Grid container alignItems="center" spacing={2} sx={{ mb: 4 }}>
                                         <Grid item>
@@ -135,29 +164,6 @@ const TestPage = () => {
                                         </Grid>
                                     </Grid>
                                 </SubCard>
-                            </FadeInWhenVisible>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <FadeInWhenVisible>
-                                <Grid container alignItems="center" spacing={2} style={{ position: 'relative', marginTop: 2 }}>
-                                    <img
-                                        src="https://cdn.dribbble.com/users/3377233/screenshots/6226947/jamming.gif"
-                                        alt="performer"
-                                        style={{
-                                            maxWidth: '100%'
-                                        }}
-                                    />
-                                    <img
-                                        src={imgbase}
-                                        alt="performer"
-                                        style={{
-                                            position: 'absolute',
-                                            width: '30%',
-                                            left: 0,
-                                            bottom: 0
-                                        }}
-                                    />
-                                </Grid>
                             </FadeInWhenVisible>
                         </Grid>
                     </Grid>

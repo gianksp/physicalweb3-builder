@@ -53,88 +53,88 @@ export default function Resources() {
                 <Grid container>
                     <Grid container sx={{ mb: 10 }}>
                         <Grid item xs={12} md={6} className="video-container">
-                            <iframe title="t" src="//www.youtube.com/embed/YE7VzlLtp-4" frameBorder="0" allowFullScreen />
+                            <iframe title="t" src="//www.youtube.com/embed/MIKv-cEfQpU" frameBorder="0" allowFullScreen />
                         </Grid>
                         <Grid item xs={12} md={6} sx={{ px: 2, pt: 2 }}>
                             <Typography
                                 variant="h1"
                                 sx={{
-                                    fontSize: '1.5rem',
+                                    fontSize: '1.8rem',
                                     fontWeight: 900,
                                     mb: 2
                                 }}
                             >
-                                From Zero to Hero - A Hello World Tutorial
+                                Street Performer dApp Controller
                             </Typography>
                             <Typography
                                 variant="body2"
                                 sx={{
-                                    fontSize: '1.2rem',
-                                    fontWeight: 900,
+                                    fontSize: '1.4rem',
+                                    fontWeight: 'lighter',
                                     mb: 2
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit
-                                leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit ametamet blandit leo lobortis eget.
+                                John is a street performer and recently started using The Physical Web3 to receive donations in crypto and
+                                distribute autographs as NFTs for every contribution received. This is an example from the end user point of
+                                view.
                             </Typography>
                         </Grid>
                     </Grid>
                     <Grid container sx={{ mb: 10 }}>
                         <Grid item xs={12} md={6} className="video-container">
-                            <iframe title="t" src="//www.youtube.com/embed/YE7VzlLtp-4" frameBorder="0" allowFullScreen />
+                            <iframe title="t" src="//www.youtube.com/embed/xOX2avYFNWA" frameBorder="0" allowFullScreen />
                         </Grid>
                         <Grid item xs={12} md={6} sx={{ px: 2, pt: 2 }}>
                             <Typography
                                 variant="h1"
                                 sx={{
-                                    fontSize: '1.5rem',
+                                    fontSize: '1.8rem',
                                     fontWeight: 900,
                                     mb: 2
                                 }}
                             >
-                                Configuring NFC tags
+                                Creating a dApp Controller
                             </Typography>
                             <Typography
                                 variant="body2"
                                 sx={{
-                                    fontSize: '1.2rem',
-                                    fontWeight: 900,
+                                    fontSize: '1.4rem',
+                                    fontWeight: 'lighter',
                                     mb: 2
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit
-                                leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit ametamet blandit leo lobortis eget.
+                                Using our builder you can generate a mobile friendly, configurable interface for any smart contract on any
+                                EVM network. You just need to provide the smart contract address and ABI you want to expose in the mobile
+                                app
                             </Typography>
                         </Grid>
                     </Grid>
                     <Grid container sx={{ mb: 10 }}>
                         <Grid item xs={12} md={6} className="video-container">
-                            <iframe title="t" src="//www.youtube.com/embed/YE7VzlLtp-4" frameBorder="0" allowFullScreen />
+                            <iframe title="t" src="//www.youtube.com/embed/X0wuCLF7Nqs" frameBorder="0" allowFullScreen />
                         </Grid>
                         <Grid item xs={12} md={6} sx={{ px: 2, pt: 2 }}>
                             <Typography
                                 variant="h1"
                                 sx={{
-                                    fontSize: '1.5rem',
+                                    fontSize: '1.8rem',
                                     fontWeight: 900,
                                     mb: 2
                                 }}
                             >
-                                Creating a Smart Object dApp Controller
+                                Configuring NFC Tag For dApp Controller
                             </Typography>
                             <Typography
                                 variant="body2"
                                 sx={{
-                                    fontSize: '1.2rem',
-                                    fontWeight: 900,
+                                    fontSize: '1.4rem',
+                                    fontWeight: 'lighter',
                                     mb: 2
                                 }}
                             >
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit
-                                leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit ametamet blandit leo lobortis eget.
+                                One of the powers of the Physical Web3 is the discoverability, using NFC allows any mobile device user to
+                                quickly access the dApp controller powering your smart contract without the need to know the underlying
+                                details, as easy as a scan. This is the process to setting up an NFC Tag to open your dApp Controller.
                             </Typography>
                         </Grid>
                     </Grid>
