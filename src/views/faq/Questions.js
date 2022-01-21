@@ -36,7 +36,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function CustomizedAccordions() {
-    const [expanded, setExpanded] = React.useState('panel1');
+    const [expanded, setExpanded] = React.useState('panel0');
 
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
@@ -46,7 +46,7 @@ export default function CustomizedAccordions() {
         {
             question: 'What is actually the Physical Web3',
             answer:
-                'The Physical Web3 is a permissionless platform that allows users to expose smart contract functionalities through a mobile friendly web app designed via url, embedding it into NFC tags or QR Codes'
+                'The Physical Web3 is a permissionless platform that allows users to expose smart contract functionalities through a mobile web3 app prodiving a URL that can be embedded it into NFC tags or QR Codes'
         },
         {
             question: "How is it related to Google's Physical Web",
