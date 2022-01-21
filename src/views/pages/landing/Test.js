@@ -185,6 +185,29 @@ const TestPage = () => {
                     </Grid>
                 </Grid>
             </Grid>
+            <Grid container>
+                <Grid item xs={12} sx={{ mt: 3 }}>
+                    <Grid container spacing={2} sx={{ mb: 2 }}>
+                        <Grid item xs={12}>
+                            <Typography variant="h2" component="div">
+                                Best Tools!
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography variant="body2">
+                                The <a href="/dashboard">PW3Builder</a> helps you build mobile web3 dApp Controllers in seconds. It if
+                                flexible enough to allow creating apps from any smart contract definition (ABI) meaning you can create a
+                                mobile UI for any use case. You can also customize the look and feel and content!
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container justifyContent="center">
+                        <Grid item>
+                            <img src="https://i.ibb.co/q9WJ9Xf/chrome-capture.gif" alt="PW3Builder" width="100%" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Container>
     );
 };
