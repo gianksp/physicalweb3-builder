@@ -32,6 +32,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuIcon from '@mui/icons-material/Menu';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
+import AppsIcon from '@mui/icons-material/Apps';
 
 function ElevationScroll({ children, window }) {
     const theme = useTheme();
@@ -75,21 +76,24 @@ const AppBar = ({ ...others }) => {
                                 <Logo />
                             </Button>
                         </Typography>
-                        <Stack direction="row" sx={{ display: { xs: 'none', sm: 'block' } }} spacing={2}>
+                        <Stack direction="row" sx={{ display: { xs: 'none', md: 'block' } }} spacing={2}>
+                            <Button color="inherit" component={RouterLink} to="/cases">
+                                USE CASES
+                            </Button>
                             <Button color="inherit" component={RouterLink} to="/resources">
-                                RESORCES
+                                RESOURCES
                             </Button>
                             <Button color="inherit" component={RouterLink} to="/faq">
                                 FAQ
                             </Button>
                             <Button color="inherit" component={RouterLink} to="/examples">
-                                EXAMPLES
+                                LIVE APPS
                             </Button>
                             <Button component={RouterLink} to="/dashboard" disableElevation variant="outlined" color="primary">
                                 Go to console
                             </Button>
                         </Stack>
-                        <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+                        <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                             <IconButton color="inherit" onClick={drawerToggler(true)} size="large">
                                 <MenuIcon />
                             </IconButton>
@@ -103,6 +107,14 @@ const AppBar = ({ ...others }) => {
                                     onKeyDown={drawerToggler(false)}
                                 >
                                     <List>
+                                        <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/cases">
+                                            <ListItemButton component="a">
+                                                <ListItemIcon>
+                                                    <VideoLibraryIcon />
+                                                </ListItemIcon>
+                                                <ListItemText primary="Use cases" />
+                                            </ListItemButton>
+                                        </Link>
                                         <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/resources">
                                             <ListItemButton component="a">
                                                 <ListItemIcon>
@@ -122,9 +134,9 @@ const AppBar = ({ ...others }) => {
                                         <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/examples">
                                             <ListItemButton component="a">
                                                 <ListItemIcon>
-                                                    <VideoLibraryIcon />
+                                                    <AppsIcon />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Examples" />
+                                                <ListItemText primary="Live Apps" />
                                             </ListItemButton>
                                         </Link>
                                         <Link style={{ textDecoration: 'none' }} component={RouterLink} to="/dashboard">

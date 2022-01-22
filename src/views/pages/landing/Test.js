@@ -33,15 +33,22 @@ const TestPage = () => {
     return (
         <Container>
             <Grid container spacing={gridSpacing}>
-                <Grid item xs={12} lg={5} md={10}>
+                <Grid item xs={12}>
                     <Grid container spacing={2} sx={{ mb: 2 }}>
-                        <Grid item xs={12}>
-                            <Typography variant="h2" component="div">
-                                Try it!
+                        <Grid item xs={12} sx={{ mb: 3 }}>
+                            <Typography variant="h1" component="div">
+                                Try it
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography variant="body2">
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontSize: { xs: '1.2rem', md: '1.125rem' },
+                                    fontWeight: 400,
+                                    lineHeight: 1.4
+                                }}
+                            >
                                 John is a street performer and recently started using The Physical Web3 to receive donations in crypto and
                                 distribute autographs as NFTs for every contribution received.
                             </Typography>
@@ -97,7 +104,8 @@ const TestPage = () => {
                                         </Grid>
                                         <Grid item xs zeroMinWidth>
                                             <Typography variant="body" fontSize="1.2em">
-                                                Scan the QR Code from your mobile and follow the steps to access the dApp.
+                                                Scan the QR Code from your mobile and follow the steps to access the{' '}
+                                                <a href="https://app.physicalweb3.com?appId=NG5mrMw7CInc88MrTAz5btOk">dApp</a>.
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -178,32 +186,9 @@ const TestPage = () => {
                             </AnimateButton>
                         </Grid>
                         <Grid item>
-                            <Button component={Link} href="/examples" variant="text">
-                                More examples
+                            <Button component={Link} href="/cases" variant="text">
+                                More use cases
                             </Button>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item xs={12} sx={{ mt: 3 }}>
-                    <Grid container spacing={2} sx={{ mb: 2 }}>
-                        <Grid item xs={12}>
-                            <Typography variant="h2" component="div">
-                                Best Tools!
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Typography variant="body2">
-                                The <a href="/dashboard">PW3Builder</a> helps you build mobile web3 dApp Controllers in seconds. It if
-                                flexible enough to allow creating apps from any smart contract definition (ABI) meaning you can create a
-                                mobile UI for any use case. You can also customize the look and feel and content!
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                    <Grid container justifyContent="center">
-                        <Grid item>
-                            <img src="https://i.ibb.co/q9WJ9Xf/chrome-capture.gif" alt="PW3Builder" width="100%" />
                         </Grid>
                     </Grid>
                 </Grid>

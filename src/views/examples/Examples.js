@@ -39,7 +39,7 @@ export default function Examples() {
                             lineHeight: 1.4
                         }}
                     >
-                        Examples
+                        Live Apps
                     </Typography>
                 </Grid>
                 {listApps()}

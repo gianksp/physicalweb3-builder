@@ -10,7 +10,7 @@ import Test from './Test';
 import Steps from './Steps';
 import Subscribe from './Subscribe';
 import Footer from './Footer';
-import Customization from 'layout/Customization';
+import Tools from 'views/pages/landing/Tools';
 import AppBar from 'ui-component/extended/AppBar';
 
 const HeaderWrapper = styled('div')(({ theme }) => ({
@@ -48,6 +48,9 @@ const Landing = () => (
         </SecondWrapper>  */}
         <SecondWrapper>
             <Test />
+        </SecondWrapper>
+        <SecondWrapper>
+            <Tools />
         </SecondWrapper>
         <SecondWrapper>
             <Steps />

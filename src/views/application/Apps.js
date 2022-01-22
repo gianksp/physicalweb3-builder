@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState, lazy, useRef } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
@@ -30,10 +30,10 @@ import sampleConfig from './config.json';
 import AceEditor from 'react-ace';
 import MobileDevicePreview from 'views/application/MobileDevicePreview';
 import DetailsApp from 'views/application/DetailsApp';
-
+import Picker from 'views/application/Picker';
+import Loadable from 'ui-component/Loadable';
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-github';
-
 import { ColorPicker, createColor } from 'mui-color';
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -48,7 +48,7 @@ const Accordion = styled((props) => <MuiAccordion disableGutters elevation={0} s
     }
 }));
 
-const ITEM_HEIGHT = 48;
+const ITEM_HEIGHT = 68;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
     root: {
@@ -62,13 +62,21 @@ const MenuProps = {
     PaperProps: {
         style: {
             maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: '100%',
+            width: {
+                xs: '100%',
+                md: '80%',
+                lg: '65%'
+            },
             borderRadius: 2
         }
     },
     InputProps: {
         style: {
-            width: '100%',
+            width: {
+                xs: '100%',
+                md: '80%',
+                lg: '65%'
+            },
             borderRadius: 2
         }
     }
@@ -98,6 +106,7 @@ export default function Examples() {
     const { apps, loadApps } = useApps();
     const [appPrimaryColor, setAppPrimaryColor] = useState(createColor('#2194f3'));
     const [appFontColor, setAppFontColor] = useState(createColor('#000'));
+    const [isTemplatePicker, showTemplatePicker] = useState(false);
     const [selectedApp, setSelectedApp] = useState({
         id: '',
         configuration: {
@@ -111,45 +120,130 @@ export default function Examples() {
     const [selectedEVM, setSelectedEVM] = useState({});
     const { Moralis, user, isAuthenticated, logout, authenticate } = useMoralis();
 
+    // const ref = useRef();
+    // const startEsbuildService = async () => {
+    //     // this object is responsible for transpiling
+    //     ref.current = await esbuild.startService({
+    //         worker: true,
+    //         // we are pointing to the public directory
+    //         wasmURL: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js'
+    //     });
+    // };
+    // const startService = async () => {
+    //     await esbuild.initialize({
+    //         worker: true,
+    //         wasmURL: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js'
+    //     });
+    //     ref.current = true;
+    // };
+
+    // useEffect(() => {
+    //     startService();
+    // }, []);
+
+    // const onClick = async () => {
+    //     if (!ref.current) {
+    //         return;
+    //     }
+    //     const result = await esbuild.build({
+    //         entryPoints: ['index.js'],
+    //         bundle: true,
+    //         write: false,
+    //         plugins: [unpkgPathPlugin()]
+    //     });
+    //     console.log(result);
+    //     setCode(result);
+    // };
+
+    useEffect(() => {
+        const input = {
+            language: 'Solidity',
+            sources: {
+                'test.sol': {
+                    content: 'import "lib.sol"; contract C { function f() public { L.f(); } }'
+                }
+            },
+            settings: {
+                outputSelection: {
+                    '*': {
+                        '*': ['*']
+                    }
+                }
+            }
+        };
+        // console.log(solc);
+        // function findImports(path) {
+        // if (path === 'lib.sol')
+        //     return {
+        //     contents:
+        //         'library L { function f() internal returns (uint) { return 7; } }'
+        //     };
+        // else return { error: 'File not found' };
+        // }
+
+        // // New syntax (supported from 0.5.12, mandatory from 0.6.0)
+        // var output = JSON.parse(
+        // solc.compile(JSON.stringify(input), { import: findImports })
+        // );
+
+        // // `output` here contains the JSON output as specified in the documentation
+        // for (var contractName in output.contracts['test.sol']) {
+        // console.log(
+        //     contractName +
+        //     ': ' +
+        //     output.contracts['test.sol'][contractName].evm.bytecode.object
+        // );
+        // }
+    }, []);
+
+    const bootstrapApp = () => {
+        // const Controller = Moralis.Object.extend('Controller');
+        // const controller = new Controller();
+        // controller.set('configuration', sampleConfig);
+        // controller.set('owner', user.get('ethAddress'));
+        // controller.set('name', sampleConfig.about.appName);
+        // controller.save().then(
+        //     (updatedController) => {
+        //         loadApps();
+        //         setSelectedApp({ id: '' });
+        //         setSelectedApp(updatedController);
+        //         setSelectedEVM(updatedController.attributes.configuration.network);
+        //         setAbiDefinition(updatedController.attributes.configuration.abi);
+        //         dispatch({
+        //             type: SNACKBAR_OPEN,
+        //             open: true,
+        //             message: 'Application Controller Created!',
+        //             variant: 'alert',
+        //             alertSeverity: 'success'
+        //         });
+        //     },
+        //     (error) => {
+        //         dispatch({
+        //             type: SNACKBAR_OPEN,
+        //             open: true,
+        //             message: error.message,
+        //             variant: 'alert',
+        //             alertSeverity: 'error'
+        //         });
+        //     }
+        // );
+    };
+
     const handleChange = (event) => {
         const {
             target: { value }
         } = event;
 
+        setSelectedApp({ id: '' });
+        showTemplatePicker(false);
+
         if (!isAuthenticated) return;
 
         // Is new?
         if (value === 'new') {
-            const Controller = Moralis.Object.extend('Controller');
-            const controller = new Controller();
-            controller.set('configuration', sampleConfig);
-            controller.set('owner', user.get('ethAddress'));
-            controller.set('name', sampleConfig.about.appName);
-            controller.save().then(
-                (updatedController) => {
-                    loadApps();
-                    setSelectedApp({ id: '' });
-                    setSelectedApp(updatedController);
-                    setSelectedEVM(updatedController.attributes.configuration.network);
-                    setAbiDefinition(updatedController.attributes.configuration.abi);
-                    dispatch({
-                        type: SNACKBAR_OPEN,
-                        open: true,
-                        message: 'Application Controller Created!',
-                        variant: 'alert',
-                        alertSeverity: 'success'
-                    });
-                },
-                (error) => {
-                    dispatch({
-                        type: SNACKBAR_OPEN,
-                        open: true,
-                        message: error.message,
-                        variant: 'alert',
-                        alertSeverity: 'error'
-                    });
-                }
-            );
+            // bootstrapApp();
+            setSelectedApp({ id: '' });
+            showTemplatePicker(true);
             return;
         }
         // Is from list?
@@ -378,7 +472,6 @@ export default function Examples() {
     );
 
     const onChangeEditor = (val) => {
-        console.log(JSON.parse(val));
         setAbiDefinition(JSON.parse(val));
     };
     console.log(selectedApp);
@@ -460,10 +553,7 @@ export default function Examples() {
     };
 
     const getPreviewUrl = () => {
-        console.log(selectedApp);
-        console.log('??????????????????????');
         const t = `https://app.physicalweb3.com?appId=${selectedApp.id}`;
-        console.log(t);
         return t;
     };
 
@@ -624,13 +714,23 @@ export default function Examples() {
         </Select>
     );
 
+    const onTemplateSelect = (template) => {
+        console.log('from parent');
+        console.log(template);
+    };
+
+    const templatePicker = isTemplatePicker && <Picker onSelect={onTemplateSelect} />;
+
     return (
-        <Grid container sx={{ p: 2 }} spacing={0.2}>
+        <Grid container sx={{ maxWidth: { sm: '100%', md: '80%', lg: '65%' }, m: '0 auto', px: { xs: 2, md: 0 } }} spacing={0.2}>
             <Grid item xs={12}>
                 {authenticated}
             </Grid>
             <Grid item xs={12}>
                 {selector}
+            </Grid>
+            <Grid item xs={12}>
+                {templatePicker}
             </Grid>
             <Grid item xs={6}>
                 {selectedApp.id && (
