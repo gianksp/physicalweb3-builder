@@ -9,7 +9,7 @@ import { gridSpacing } from 'store/constant';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-
+import EmailIcon from '@mui/icons-material/Email';
 import discord from 'assets/images/discord.svg';
 
 // styles
@@ -69,13 +69,13 @@ const FooterPage = () => {
                                         Join our Discord!
                                     </FooterLink>
                                 </Grid>
-                                {/* <Grid item>
-                                    <FooterLink href="https://www.facebook.com/codedthemes" target="_blank" underline="hover">
-                                        <FacebookIcon />
-                                        Facebook
+                                <Grid item>
+                                    <FooterLink href="mailto:admin@physicalweb3.com" target="_blank" underline="hover">
+                                        <EmailIcon />
+                                        Contact us!
                                     </FooterLink>
                                 </Grid>
-                                <Grid item>
+                                {/* <Grid item>
                                     <FooterLink href="https://twitter.com/codedthemes" target="_blank" underline="hover">
                                         <TwitterIcon />
                                         Twitter

@@ -141,7 +141,7 @@ export default function Cases() {
                                 <Grid item xs={12}>
                                     <Typography variant="body2">{item.description}</Typography>
                                 </Grid>
-                                <Grid item xs={12}>
+                                {/* <Grid item xs={12}>
                                     <Grid container justifyContent="left" spacing={gridSpacing}>
                                         <Grid item>
                                             <AnimateButton>
@@ -165,7 +165,7 @@ export default function Cases() {
                                             </AnimateButton>
                                         </Grid>
                                     </Grid>
-                                </Grid>
+            </Grid> */}
                             </Grid>
                         </SubCard>
                     </FadeInWhenVisible>
