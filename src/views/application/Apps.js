@@ -137,10 +137,6 @@ export default function Examples() {
     //     ref.current = true;
     // };
 
-    // useEffect(() => {
-    //     startService();
-    // }, []);
-
     // const onClick = async () => {
     //     if (!ref.current) {
     //         return;
@@ -196,37 +192,37 @@ export default function Examples() {
         // }
     }, []);
 
-    const bootstrapApp = () => {
-        // const Controller = Moralis.Object.extend('Controller');
-        // const controller = new Controller();
-        // controller.set('configuration', sampleConfig);
-        // controller.set('owner', user.get('ethAddress'));
-        // controller.set('name', sampleConfig.about.appName);
-        // controller.save().then(
-        //     (updatedController) => {
-        //         loadApps();
-        //         setSelectedApp({ id: '' });
-        //         setSelectedApp(updatedController);
-        //         setSelectedEVM(updatedController.attributes.configuration.network);
-        //         setAbiDefinition(updatedController.attributes.configuration.abi);
-        //         dispatch({
-        //             type: SNACKBAR_OPEN,
-        //             open: true,
-        //             message: 'Application Controller Created!',
-        //             variant: 'alert',
-        //             alertSeverity: 'success'
-        //         });
-        //     },
-        //     (error) => {
-        //         dispatch({
-        //             type: SNACKBAR_OPEN,
-        //             open: true,
-        //             message: error.message,
-        //             variant: 'alert',
-        //             alertSeverity: 'error'
-        //         });
-        //     }
-        // );
+    const bootstrapApp = (config) => {
+        const Controller = Moralis.Object.extend('Controller');
+        const controller = new Controller();
+        controller.set('configuration', config);
+        controller.set('owner', user.get('ethAddress'));
+        controller.set('name', config.about.appName);
+        controller.save().then(
+            (updatedController) => {
+                loadApps();
+                setSelectedApp({ id: '' });
+                setSelectedApp(updatedController);
+                setSelectedEVM(updatedController.attributes.configuration.network);
+                setAbiDefinition(updatedController.attributes.configuration.abi);
+                dispatch({
+                    type: SNACKBAR_OPEN,
+                    open: true,
+                    message: 'Application Controller Created!',
+                    variant: 'alert',
+                    alertSeverity: 'success'
+                });
+            },
+            (error) => {
+                dispatch({
+                    type: SNACKBAR_OPEN,
+                    open: true,
+                    message: error.message,
+                    variant: 'alert',
+                    alertSeverity: 'error'
+                });
+            }
+        );
     };
 
     const handleChange = (event) => {
@@ -717,6 +713,11 @@ export default function Examples() {
     const onTemplateSelect = (template) => {
         console.log('from parent');
         console.log(template);
+        setAppPrimaryColor(template.config.theme.primary);
+        setAppFontColor(template.config.theme.secondary);
+        setSelectedEVM(template.config.network);
+        setAbiDefinition(template.config.abi);
+        bootstrapApp(template.config);
     };
 
     const templatePicker = isTemplatePicker && <Picker onSelect={onTemplateSelect} />;
@@ -730,7 +731,7 @@ export default function Examples() {
                 {selector}
             </Grid>
             <Grid item xs={12}>
-                {templatePicker}
+                {!selectedApp.id && templatePicker}
             </Grid>
             <Grid item xs={6}>
                 {selectedApp.id && (

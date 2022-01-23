@@ -4,7 +4,7 @@
 		"secondary": "#ffffff"
 	},
 	"network": {
-		"contract": "0x995EFB49f7ACD7f0D0770fD3a846Ee464577F589",
+		"contract": "0x76640f98Fe2fdC9851636b97F84681e63C613673",
 		"imageUrl": "https://logowik.com/content/uploads/images/avalanche-coin-avax8592.jpg",
 		"name": "Fuji Testnet",
 		"id": 43113, 
@@ -14,49 +14,23 @@
 		"blockExplorerUrl": "https://testnet.snowtrace.io/"
 	},
 	"about": {
-		"appName": "Suggestion Box Controller",
+		"appName": "Hello World Controller",
 		"imageUrl": "https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif",
 		"title": "How does it work?",
-		"description": "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
+		"description": "Welcome to The Physical Web3, this is a sample controller that illustrates the capabilities to generate mobile UI to smart contracts deployed in EVM networks."
 	},
 	"abi": [
 		{
 			"inputs": [],
-			"name": "getLastMessage",
+			"name": "renderHelloWorld",
 			"outputs": [
 				{
 					"internalType": "string",
-					"name": "lastMessage",
+					"name": "",
 					"type": "string"
 				}
 			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "getMessages",
-			"outputs": [
-				{
-					"internalType": "string[]",
-					"name": "msgs",
-					"type": "string[]"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "string",
-					"name": "message",
-					"type": "string"
-				}
-			],
-			"name": "processMessage",
-			"outputs": [],
-			"stateMutability": "nonpayable",
+			"stateMutability": "pure",
 			"type": "function"
 		}
 	]
