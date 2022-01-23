@@ -363,7 +363,7 @@ const Picker = ({ onSelect }) => {
                     This template requires smart contract deployment. Please confirm you want to go ahead with the deployment process. The
                     process may take a while, please be patient.
                 </DialogContentText>
-                <Grid container spacing={1}>
+                <Grid container spacing={1} sx={{ mt: 3 }}>
                     {displayTech([`Contract ${template.contractName}`, `Compiler ${template.compilerVersion}`])}
                 </Grid>
             </DialogContent>
