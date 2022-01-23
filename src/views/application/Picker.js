@@ -61,7 +61,7 @@ const items = [
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
         compilerVersion: '0.8.0',
-        contractUrl: '/contracts/PetTracker.sol',
+        contractUrl: 'https://raw.githubusercontent.com/gianksp/physicalweb3/main/public/contracts/PetTracker.sol',
         contractName: 'PetTracker',
         config: {
             theme: defaultTheme,
@@ -86,7 +86,7 @@ const items = [
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/SimplePay.sol',
+        contractUrl: 'https://raw.githubusercontent.com/gianksp/physicalweb3/main/public/contracts/SimplePay.sol',
         compilerVersion: '0.8.0',
         contractName: 'SimplePay',
         config: {
@@ -111,7 +111,7 @@ const items = [
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/EmergencyInfo.sol',
+        contractUrl: 'https://raw.githubusercontent.com/gianksp/physicalweb3/main/public/contracts/EmergencyInfo.sol',
         contractName: 'EmergencyInfo',
         compilerVersion: '0.8.0',
         config: {
@@ -136,7 +136,7 @@ const items = [
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/WifiSharing.sol',
+        contractUrl: 'https://raw.githubusercontent.com/gianksp/physicalweb3/main/public/contracts/WifiSharing.sol',
         contractName: 'WifiSharing',
         compilerVersion: '0.8.0',
         config: {
@@ -161,7 +161,7 @@ const items = [
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/SimpleFeedback.sol',
+        contractUrl: 'https://raw.githubusercontent.com/gianksp/physicalweb3/main/public/contracts/SimpleFeedback.sol',
         contractName: 'SimpleFeedback',
         compilerVersion: '0.8.0',
         config: {
@@ -277,7 +277,9 @@ const Picker = ({ onSelect }) => {
     const displayTech = (items = []) => {
         const techList = [];
         items.forEach((item) => {
-            techList.push(<Chip key={item} label={item} variant="outlined" color="secondary" sx={{ mx: 1, mt: 1, fontSize: '0.7em' }} />);
+            techList.push(
+                <Chip key={item} label={item} variant="outlined" color="secondary" sx={{ fontSize: '0.7em', marginLeft: '2px' }} />
+            );
         });
         return techList;
     };
@@ -331,7 +333,7 @@ const Picker = ({ onSelect }) => {
                 <Grid item md={4} sm={6} key={item.id}>
                     <SubCard onClick={() => fromTemplate(item)} sx={{ cursor: 'pointer' }} id={item.id}>
                         {displayLoading(item.id)}
-                        <Grid container justifyContent="center" spacing={2}>
+                        <Grid container justifyContent="center" spacing={1}>
                             <Grid item xs={12}>
                                 <Typography variant="h3">{item.title}</Typography>
                             </Grid>
@@ -361,7 +363,7 @@ const Picker = ({ onSelect }) => {
                     This template requires smart contract deployment. Please confirm you want to go ahead with the deployment process. The
                     process may take a while, please be patient.
                 </DialogContentText>
-                <Grid container sx={{ mt: 1 }}>
+                <Grid container spacing={1}>
                     {displayTech([`Contract ${template.contractName}`, `Compiler ${template.compilerVersion}`])}
                 </Grid>
             </DialogContent>
