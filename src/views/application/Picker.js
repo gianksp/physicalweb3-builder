@@ -337,7 +337,7 @@ const Picker = ({ onSelect }) => {
                             <Grid item xs={12}>
                                 <Typography variant="h3">{item.title}</Typography>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sx={{ minHeight: 80 }}>
                                 <Typography variant="body2">{item.description}</Typography>
                             </Grid>
                             <Grid item>{displayTech(item.tech)}</Grid>
