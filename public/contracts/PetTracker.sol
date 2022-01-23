@@ -11,6 +11,10 @@ contract PetTracker {
         _;
     }
 
+    constructor() { 
+        owner = msg.sender;
+    }
+
     function setPetInfo(string calldata message) public onlyOwner {
         petInfo = message;
     }

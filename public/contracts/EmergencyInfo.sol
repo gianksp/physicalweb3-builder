@@ -11,6 +11,10 @@ contract EmergencyInfo {
         _;
     }
 
+    constructor() { 
+        owner = msg.sender;
+    }
+
     function setInfo(string calldata message) public onlyOwner {
         myInfo = message;
     }

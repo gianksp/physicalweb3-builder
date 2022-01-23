@@ -6,6 +6,10 @@ contract WifiSharing {
     string internal info;
     address payable public owner;
   
+    constructor() { 
+        owner = msg.sender;
+    }
+
     modifier onlyOwner {
         require(msg.sender == owner, "You are not the owner of this contract");
         _;
