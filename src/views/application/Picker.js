@@ -207,6 +207,7 @@ const items = [
 const Picker = ({ onSelect }) => {
     const { Moralis, user } = useMoralis();
     const [open, setOpen] = useState(false);
+    const [switchDialog, showSwitchDialog] = useState(false);
     const [template, setTemplate] = useState({});
     const [isLoading, setLoading] = useState(false);
 
@@ -281,8 +282,36 @@ const Picker = ({ onSelect }) => {
         return techList;
     };
 
-    const fromTemplate = (tmp) => {
+    const isValidChain = async (t) => {
+        let isValid = false;
+        try {
+            const web3 = await Moralis.enableWeb3();
+            const chainIdHex = web3.currentProvider.chainId;
+            const chainIdDec = await web3.eth.getChainId();
+            console.log(chainIdHex);
+            console.log(chainIdDec);
+            if (chainIdDec === t.config.network.id) {
+                console.log('right chain!');
+                isValid = true;
+            } else {
+                console.log('prompt switch network');
+                isValid = false;
+            }
+        } catch (e) {
+            console.log(e);
+        }
+        return isValid;
+    };
+
+    const fromTemplate = async (tmp) => {
         if (isLoading) return;
+        const validChain = await isValidChain(tmp);
+        // Is right chain?
+        if (!validChain) {
+            showSwitchDialog(true);
+            return;
+        }
+
         setTemplate(tmp);
         console.log(tmp);
         console.log(template);
@@ -318,6 +347,53 @@ const Picker = ({ onSelect }) => {
         return list;
     };
 
+    const confirmDialog = (
+        <Dialog
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClose}
+            aria-describedby="alert-dialog-slide-description"
+        >
+            <DialogTitle>Deploy Smart Contract?</DialogTitle>
+            <DialogContent>
+                <DialogContentText id="alert-dialog-slide-description">
+                    This template requires smart contract deployment. Please confirm you want to go ahead with the deployment process. The
+                    process may take a while, please be patient.
+                </DialogContentText>
+                <Grid container sx={{ mt: 1 }}>
+                    {displayTech([`Contract ${template.contractName}`, `Compiler ${template.compilerVersion}`])}
+                </Grid>
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={handleClose}>Cancel</Button>
+                <Button onClick={handleProceed} variant="contained">
+                    Deploy
+                </Button>
+            </DialogActions>
+        </Dialog>
+    );
+
+    const switchNetworkDialog = (
+        <Dialog
+            open={switchDialog}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={() => showSwitchDialog(false)}
+            aria-describedby="alert-dialog-slide-description"
+        >
+            <DialogTitle>Switch Network</DialogTitle>
+            <DialogContent>
+                <DialogContentText id="alert-dialog-slide-description">
+                    To deploy this contract you need to switch to the correct network (Avalanche Fuji Testnet).
+                </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={() => showSwitchDialog(false)}>Close</Button>
+            </DialogActions>
+        </Dialog>
+    );
+
     return (
         <Container>
             <Grid container alignItems="center" justifyContent="space-between" spacing={gridSpacing} sx={{ mt: 0, mb: 10, pl: 3, pr: 3 }}>
@@ -328,30 +404,8 @@ const Picker = ({ onSelect }) => {
                     {renderCards()}
                 </Grid>
             </Grid>
-            <Dialog
-                open={open}
-                TransitionComponent={Transition}
-                keepMounted
-                onClose={handleClose}
-                aria-describedby="alert-dialog-slide-description"
-            >
-                <DialogTitle>Deploy Smart Contract?</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-slide-description">
-                        This template requires smart contract deployment. Please confirm you want to go ahead with the deployment process.
-                        The process may take a while, please be patient.
-                    </DialogContentText>
-                    <Grid container sx={{ mt: 1 }}>
-                        {displayTech([`Contract ${template.contractName}`, `Compiler ${template.compilerVersion}`])}
-                    </Grid>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleProceed} variant="contained">
-                        Deploy
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            {confirmDialog}
+            {switchNetworkDialog}
         </Container>
     );
 };
