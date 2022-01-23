@@ -60,17 +60,17 @@ const items = [
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/SimpleFeedback.sol',
-        contractName: 'SimpleFeedback',
+        compilerVersion: '0.8.0',
+        contractUrl: '/contracts/PetTracker.sol',
+        contractName: 'PetTracker',
         config: {
             theme: defaultTheme,
             network: defaultNetwork,
             about: {
-                appName: 'Suggestion Box Controller',
+                appName: 'My Pet Tracker',
                 imageUrl: 'https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif',
                 title: 'How does it work?',
-                description:
-                    "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
+                description: 'Store and share your pet information in case it gets lost.'
             },
             abi: []
         }
@@ -86,17 +86,17 @@ const items = [
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/SimpleFeedback.sol',
-        contractName: 'SimpleFeedback',
+        contractUrl: '/contracts/SimplePay.sol',
+        compilerVersion: '0.8.0',
+        contractName: 'SimplePay',
         config: {
             theme: defaultTheme,
             network: defaultNetwork,
             about: {
-                appName: 'Suggestion Box Controller',
+                appName: 'Simple Pay',
                 imageUrl: 'https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif',
                 title: 'How does it work?',
-                description:
-                    "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
+                description: 'Receive payments to your wallet from anyone. Use it to receive tips and contributions.'
             },
             abi: []
         }
@@ -111,17 +111,17 @@ const items = [
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/SimpleFeedback.sol',
-        contractName: 'SimpleFeedback',
+        contractUrl: '/contracts/EmergencyInfo.sol',
+        contractName: 'EmergencyInfo',
+        compilerVersion: '0.8.0',
         config: {
             theme: defaultTheme,
             network: defaultNetwork,
             about: {
-                appName: 'Suggestion Box Controller',
+                appName: 'My Emergency Info',
                 imageUrl: 'https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif',
                 title: 'How does it work?',
-                description:
-                    "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
+                description: 'Share your emergency contacts, blood type and allergies from your wallet.'
             },
             abi: []
         }
@@ -136,17 +136,17 @@ const items = [
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
         tech: ['Avalanche', 'Testnet', 'Covalent'],
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/SimpleFeedback.sol',
-        contractName: 'SimpleFeedback',
+        contractUrl: '/contracts/WifiSharing.sol',
+        contractName: 'WifiSharing',
+        compilerVersion: '0.8.0',
         config: {
             theme: defaultTheme,
             network: defaultNetwork,
             about: {
-                appName: 'Suggestion Box Controller',
+                appName: 'WiFi Sharing Controller',
                 imageUrl: 'https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif',
                 title: 'How does it work?',
-                description:
-                    "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
+                description: 'Share your WiFi password with guests, you can even monetize it.'
             },
             abi: []
         }
@@ -163,44 +163,45 @@ const items = [
         compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
         contractUrl: '/contracts/SimpleFeedback.sol',
         contractName: 'SimpleFeedback',
+        compilerVersion: '0.8.0',
         config: {
             theme: defaultTheme,
             network: defaultNetwork,
             about: {
-                appName: 'Suggestion Box Controller',
+                appName: 'Simple Feedbacl Controller',
                 imageUrl: 'https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif',
                 title: 'How does it work?',
-                description:
-                    "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
-            },
-            abi: []
-        }
-    },
-    {
-        id: 6,
-        title: 'REST API Integration',
-        description: 'Call a REST endpoint within a Smart Contract, you can even monetize it.',
-        videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
-        imageUrl: 'https://thumbs.gfycat.com/LegitimateScornfulIraniangroundjay-size_restricted.gif',
-        source: '//www.youtube.com/embed/MIKv-cEfQpU',
-        dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
-        tech: ['Avalanche', 'Testnet', 'Covalent', 'Chainlink'],
-        compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-        contractUrl: '/contracts/SimpleFeedback.sol',
-        contractName: 'SimpleFeedback',
-        config: {
-            theme: defaultTheme,
-            network: defaultNetwork,
-            about: {
-                appName: 'Suggestion Box Controller',
-                imageUrl: 'https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif',
-                title: 'How does it work?',
-                description:
-                    "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
+                description: 'Capture feedback from guests visiting your location about their experience.'
             },
             abi: []
         }
     }
+    // {
+    //     id: 6,
+    //     title: 'REST API Integration',
+    //     description: 'Call a REST endpoint within a Smart Contract, you can even monetize it.',
+    //     videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
+    //     imageUrl: 'https://thumbs.gfycat.com/LegitimateScornfulIraniangroundjay-size_restricted.gif',
+    //     source: '//www.youtube.com/embed/MIKv-cEfQpU',
+    //     dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
+    //     tech: ['Avalanche', 'Testnet', 'Covalent', 'Chainlink'],
+    //     compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
+    //     contractUrl: '/contracts/SimpleFeedback.sol',
+    //     contractName: 'SimpleFeedback',
+    //     compilerVersion: '0.8.0',
+    //     config: {
+    //         theme: defaultTheme,
+    //         network: defaultNetwork,
+    //         about: {
+    //             appName: 'Suggestion Box Controller',
+    //             imageUrl: 'https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif',
+    //             title: 'How does it work?',
+    //             description:
+    //                 "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
+    //         },
+    //         abi: []
+    //     }
+    // }
 ];
 
 const Picker = ({ onSelect }) => {
@@ -281,6 +282,7 @@ const Picker = ({ onSelect }) => {
     };
 
     const fromTemplate = (tmp) => {
+        if (isLoading) return;
         setTemplate(tmp);
         console.log(tmp);
         console.log(template);
@@ -337,11 +339,17 @@ const Picker = ({ onSelect }) => {
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
                         This template requires smart contract deployment. Please confirm you want to go ahead with the deployment process.
+                        The process may take a while, please be patient.
                     </DialogContentText>
+                    <Grid container sx={{ mt: 1 }}>
+                        {displayTech([`Contract ${template.contractName}`, `Compiler ${template.compilerVersion}`])}
+                    </Grid>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleProceed}>Proceed</Button>
+                    <Button onClick={handleProceed} variant="contained">
+                        Deploy
+                    </Button>
                 </DialogActions>
             </Dialog>
         </Container>
