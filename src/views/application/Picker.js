@@ -298,20 +298,18 @@ const Picker = ({ onSelect }) => {
         items.forEach((item) => {
             list.push(
                 <Grid item md={4} sm={6} key={item.id}>
-                    <FadeInWhenVisible>
-                        <SubCard onClick={() => fromTemplate(item)} sx={{ cursor: 'pointer' }} id={item.id}>
-                            {displayLoading(item.id)}
-                            <Grid container justifyContent="center" spacing={2}>
-                                <Grid item xs={12}>
-                                    <Typography variant="h3">{item.title}</Typography>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Typography variant="body2">{item.description}</Typography>
-                                </Grid>
-                                <Grid item>{displayTech(item.tech)}</Grid>
+                    <SubCard onClick={() => fromTemplate(item)} sx={{ cursor: 'pointer' }} id={item.id}>
+                        {displayLoading(item.id)}
+                        <Grid container justifyContent="center" spacing={2}>
+                            <Grid item xs={12}>
+                                <Typography variant="h3">{item.title}</Typography>
                             </Grid>
-                        </SubCard>
-                    </FadeInWhenVisible>
+                            <Grid item xs={12}>
+                                <Typography variant="body2">{item.description}</Typography>
+                            </Grid>
+                            <Grid item>{displayTech(item.tech)}</Grid>
+                        </Grid>
+                    </SubCard>
                 </Grid>
             );
         });
