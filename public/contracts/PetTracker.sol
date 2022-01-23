@@ -4,7 +4,7 @@ pragma solidity 0.8.0;
 contract PetTracker {
     
     string internal petInfo;
-    address payable public owner;
+    address public owner;
   
     modifier onlyOwner {
         require(msg.sender == owner, "You are not the owner of this contract");

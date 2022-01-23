@@ -4,7 +4,7 @@ pragma solidity 0.8.0;
 contract WifiSharing {
     
     string internal info;
-    address payable public owner;
+    address public owner;
   
     constructor() { 
         owner = msg.sender;
