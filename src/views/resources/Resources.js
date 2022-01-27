@@ -45,7 +45,7 @@ const items = [
     {
         title: 'Contracts Github',
         imageUrl: 'https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA',
-        url: 'https://github.com/gianksp/physicalweb3/tree/main/public/contracts'
+        url: 'https://github.com/gianksp/physicalweb3-builder/tree/main/public/contracts'
     }
 ];
 
