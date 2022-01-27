@@ -38,7 +38,13 @@ PhysicalWeb3 uses a number of technologies and networks:
 
 ## Getting Started
 
-First, run the development server:
+Require setting up .env with
+```
+REACT_APP_MORALIS_APP_ID=<Your Moralis Server AppId>
+REACT_APP_MORALIS_SERVER_URL=<Your Moralis Server full URL>
+```
+
+Then, run the development server:
 
 ```bash
 yarn install
@@ -46,9 +52,3 @@ yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-Require setting up .env with
-```
-REACT_APP_MORALIS_APP_ID=<Your Moralis Server AppId>
-REACT_APP_MORALIS_SERVER_URL=<Your Moralis Server full URL>
-```
