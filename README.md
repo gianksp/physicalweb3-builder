@@ -1,8 +1,16 @@
 [![PhysicalWeb3](https://i.ibb.co/xg95Zj2/banner.jpg)](https://www.youtube.com/embed/MIKv-cEfQpU)
+# PW3Builder Platform
+---------
 ## _A Moralis & Avalanche Hackathon project 2022_
 
 ## What is it?
 [The Physical Web3](https://physicalweb3.com) is a permissionless platform that allows users to expose smart contract functionalities through a mobile web3 app prodiving a URL that can be embedded it into NFC tags or QR Codes. It offers a no code/low code dApp builder that is a user-friendly platform for creating blockchain based applications from templates, much like WIX or Squarespace allow you to create web ready experiences in web 2.0, PW3Builder lets you do it in web 3.0 this time leveraging the whole power of blockchain.
+
+## Scope of project
+
+#### "The simplest way to create dApps"
+
+The PW3Builder is a dApp capable of launching PW3Apps from templates. It achieves it by leveraging smart contract templates that compiles and deployes while allowing users to configure look and feel and functionalities around the dApp. It offers and advanced preview mechanism that allows accessing the PWApp generated from the browser.
 
 ## How it works?
 
