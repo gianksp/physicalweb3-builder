@@ -31,7 +31,11 @@ const FeaturePage = () => {
                                 <SubCard>
                                     <Grid container justifyContent="center" spacing={2}>
                                         <Grid item>
-                                            <img src="https://i.makeagif.com/media/11-25-2018/shTaNn.gif" alt="use" width="340" />
+                                            <img
+                                                src="https://thumbs.gfycat.com/BarrenWateryBlacknorwegianelkhound-size_restricted.gif"
+                                                alt="use"
+                                                width="340"
+                                            />
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="h3">Evertyhing is a tap away</Typography>
@@ -122,6 +126,18 @@ const FeaturePage = () => {
                     <Grid item xs={12}>
                         <img src={howItWorks} alt="how it works" width="100%" />
                     </Grid>
+                </Grid>
+                <Grid item xs={12} sx={{ textAlign: 'center' }} className="embed-youtube">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/pwsG9GO2mDY?controls=0"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        style={{ margin: '0 auto' }}
+                    />
                 </Grid>
             </Grid>
         </Container>

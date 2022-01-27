@@ -46,7 +46,12 @@ export default function CustomizedAccordions() {
         {
             question: 'What is actually the Physical Web3',
             answer:
-                'The Physical Web3 is a permissionless platform that allows users to expose smart contract functionalities through a mobile web3 app prodiving a URL that can be embedded it into NFC tags or QR Codes'
+                'The Physical Web3 is a permissionless platform that allows users to expose smart contract functionalities through a mobile web3 app prodiving a URL that can be embedded it into NFC tags or QR Codes. It offers a no code/low code dApp builder that is a user-friendly platform for creating blockchain based applications from templates, much like WIX or Squarespace allow you to create web ready experiences in web 2.0, PW3Builder lets you do it in web 3.0 this time leveraging the whole power of blockchain.'
+        },
+        {
+            question: 'What are the problems that the Physical Web3 aims to solve?',
+            answer:
+                'There are several problems the Physical Web3 tackles. Discoverability - it is very hard to remember urls, wallet addresses and network details. Having the applications themselves resolve that from a QR Code or NFC Tag reduces the burden on user. Ease of use - With the PW3Builder, anyone can build dApps from templates without additional investment of time or money in developers or infrastructure. Adoption - The same way the PW3Builder lets anyone build dApps, the dApps themselves are mobile friendly and offer frictionless UX to transfer data and value, users do not need additional training or tools to use them'
         },
         {
             question: "How is it related to Google's Physical Web",
@@ -71,7 +76,7 @@ export default function CustomizedAccordions() {
         {
             question: 'Why does the Physical Web3 use URLs?',
             answer:
-                'URLs can be shared, embedded in NFC Tags, QRCodes, Eddystone Beacons, etc. They are an easy way to power discoverability.'
+                'URLs can be shared, embedded in NFC Tags, QRCodes, Eddystone Beacons, etc. They are an easy way to power discoverability. They are widely used and adopted and we want to leverage this in order to improve discoverability to web3 apps.'
         },
         {
             question: 'Why does Physical Web3 use NFC?',
@@ -85,7 +90,8 @@ export default function CustomizedAccordions() {
         },
         {
             question: 'What does the decentralization of the Physical Web3 refer to?',
-            answer: 'It refers to the use of smart contract to power transfer of data and value in a permissionless fashion.'
+            answer:
+                'It refers to the use of smart contract to power transfer of data and value in a permissionless fashion. In this prototype, certainly there are certain elements that are not decentralized. Data is stored in Moralis and dApps are launched using physicalweb3.com domain. However, we intent in the future to let users decide where the data is stored and how to handle URL to allow fully decentralized launches.'
         },
         {
             question: 'How does the Physical Web3 address potential security concerns?',
@@ -94,7 +100,8 @@ export default function CustomizedAccordions() {
         },
         {
             question: 'Which platforms and blockchain networks are supported?',
-            answer: 'By default Avalanche Fuji Testnet is preselected, however it can be configured for any EVM platform'
+            answer:
+                'By default Avalanche Fuji Testnet is preselected, however it can be configured for any EVM platform. In the future we plan to support as many smart contract platforms as possible via a community driven plugin system annd a marketplace to share them.'
         },
         {
             question: 'Is it Free?',

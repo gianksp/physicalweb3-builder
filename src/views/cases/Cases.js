@@ -12,6 +12,24 @@ import SubCard from 'ui-component/cards/SubCard';
 
 const items = [
     {
+        title: 'Send And Receive Payments',
+        description:
+            'Businesses and individuals looking to setup a secure payment point of sale to accept payments in crypto now have a 1 click secure and transparent solution powered by blockchain.',
+        videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
+        imageUrl: 'https://thumbs.gfycat.com/SimilarFrightenedCapybara-size_restricted.gif',
+        source: '//www.youtube.com/embed/MIKv-cEfQpU',
+        dApp: '//www.youtube.com/embed/MIKv-cEfQpU'
+    },
+    {
+        title: 'Sell Tickets',
+        description:
+            'Let your guests discover events they can book by scanning a QR Code or an NFC Tag. From movies to organizing parties it is easy to discover and engage.',
+        videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
+        imageUrl: 'https://thumbs.gfycat.com/BarrenWateryBlacknorwegianelkhound-size_restricted.gif',
+        source: '//www.youtube.com/embed/MIKv-cEfQpU',
+        dApp: '//www.youtube.com/embed/MIKv-cEfQpU'
+    },
+    {
         title: 'Track Lost Pets',
         description:
             'A dog collar NFC Tag could broadcast a URL providing basic information about the dog. If the dog is lost, its owner can update the status to help others know to return it.',
@@ -37,15 +55,6 @@ const items = [
             'Street performers can receive payments and contributions in exchange for sharing NFTs about their work with their supporters. Proximity value transfer has not been easier.',
         videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
         imageUrl: 'https://cdn.dribbble.com/users/3377233/screenshots/6226947/jamming.gif',
-        source: '//www.youtube.com/embed/MIKv-cEfQpU',
-        dApp: '//www.youtube.com/embed/MIKv-cEfQpU'
-    },
-    {
-        title: 'Simplify Registration Process',
-        description:
-            'Hospitals can allow patients to fill out the form and complete the registration procedures online from their smartphones, without the hassle of standing in long queues.',
-        videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
-        imageUrl: 'https://thumbs.gfycat.com/SimilarFrightenedCapybara-size_restricted.gif',
         source: '//www.youtube.com/embed/MIKv-cEfQpU',
         dApp: '//www.youtube.com/embed/MIKv-cEfQpU'
     },
