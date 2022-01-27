@@ -1,4 +1,4 @@
-[![PhysicalWeb3](https://i.ibb.co/xg95Zj2/banner.jpg)](https://www.youtube.com/embed/MIKv-cEfQpU)
+[![PhysicalWeb3](https://i.ibb.co/6BTsQkw/Screenshot-2022-01-27-at-18-48-53.png)](https://www.youtube.com/embed/MIKv-cEfQpU)
 # PW3Builder Platform
 ---------
 ## _A Moralis & Avalanche Hackathon project 2022_
