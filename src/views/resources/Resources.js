@@ -35,12 +35,12 @@ const items = [
     {
         title: 'PW3Builder Github',
         imageUrl: 'https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA',
-        url: 'https://github.com/gianksp/physicalweb3'
+        url: 'https://github.com/gianksp/physicalweb3-builder'
     },
     {
         title: 'PW3App Github',
         imageUrl: 'https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA',
-        url: 'https://github.com/gianksp/pw3app'
+        url: 'https://github.com/gianksp/physicalweb3-dapp'
     },
     {
         title: 'Contracts Github',
