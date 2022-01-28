@@ -22,18 +22,13 @@ contract APIConsumer is ChainlinkClient {
     bytes32 private jobId;
     uint256 private fee;
     
-    /**
-     * Network: Kovan
-     * Oracle: 0xc57B33452b4F7BB189bB5AfaE9cc4aBa1f7a4FD8 (Chainlink Devrel   
-     * Node)
-     * Job ID: d5270d1c311941d0b08bead21fea7747
-     * Fee: 0.1 LINK
-     */
     constructor() {
-        setPublicChainlinkToken();
-        oracle = 0xc57B33452b4F7BB189bB5AfaE9cc4aBa1f7a4FD8;
-        jobId = "d5270d1c311941d0b08bead21fea7747";
+        // setPublicChainlinkToken();
+        setChainlinkToken(0x0b9d5D9136855f6FEc3c0993feE6E9CE8a297846);
+        oracle = 0xCC80934EAf22b2C8dBf7A69e8E0D356a7CAc5754;
+        jobId = "5ca4fa9b2d64462290abfbda84e38cf4";
         fee = 0.1 * 10 ** 18; // (Varies by network and job)
+        baseUrl="http://0218-86-45-255-5.ngrok.io?msg=";
     }
     
     function sendMessage(string calldata message) public returns (bytes32 requestId) 
@@ -61,4 +56,3 @@ contract APIConsumer is ChainlinkClient {
 
     // function withdrawLink() external {} - Implement a withdraw function to avoid locking your LINK in the contract
 }
-
