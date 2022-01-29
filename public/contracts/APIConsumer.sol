@@ -1,7 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
-
-import "https://raw.githubusercontent.com/smartcontractkit/chainlink/develop/contracts/src/v0.8/ChainlinkClient.sol";
+import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 
 /**
  * Request testnet LINK and ETH here: https://faucets.chain.link/
@@ -12,53 +10,54 @@ import "https://raw.githubusercontent.com/smartcontractkit/chainlink/develop/con
  * THIS IS AN EXAMPLE CONTRACT WHICH USES HARDCODED VALUES FOR CLARITY.
  * PLEASE DO NOT USE THIS CODE IN PRODUCTION.
  */
-contract APIConsumer is ChainlinkClient {
+contract RESTInvoker is ChainlinkClient {
     using Chainlink for Chainlink.Request;
   
-    string public response;
-    string public baseUrl;
-    
+    mapping(address => string) public uris;
+    mapping(address => string) public paths;
+
+    uint256 public r;
+
     address private oracle;
     bytes32 private jobId;
     uint256 private fee;
     
-    /**
-     * Network: Kovan
-     * Oracle: 0xc57B33452b4F7BB189bB5AfaE9cc4aBa1f7a4FD8 (Chainlink Devrel   
-     * Node)
-     * Job ID: d5270d1c311941d0b08bead21fea7747
-     * Fee: 0.1 LINK
-     */
     constructor() {
-        setPublicChainlinkToken();
-        oracle = 0xc57B33452b4F7BB189bB5AfaE9cc4aBa1f7a4FD8;
-        jobId = "d5270d1c311941d0b08bead21fea7747";
-        fee = 0.1 * 10 ** 18; // (Varies by network and job)
+        setChainlinkToken(0x0b9d5D9136855f6FEc3c0993feE6E9CE8a297846);
+        oracle = 0xD2DE9f0bBe99C7100f8456548cDDb33103122e57;
+        jobId = "3be403cbdf8544aa80d923dc1f0bc2ac";
+        fee = 0.01 * 10 ** 18;
     }
-    
-    function sendMessage(string calldata message) public returns (bytes32 requestId) 
-    {
-        require(bytes (baseUrl).length > 0, "Base URL must be set");
-        Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
-        
-        string memory URI = string(abi.encodePacked(baseUrl, message));
-        request.add("get", URI);
 
+    function sendMessage(string calldata msgTxt) public returns (bytes32 requestId) 
+    {
+
+        require(bytes (uris[msg.sender]).length > 0, "Base URL must be set");
+        require(bytes (paths[msg.sender]).length > 0, "Path must be set");
+        Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
+        request.add("path", paths[msg.sender]);
+        string memory base = uris[msg.sender];
+        string memory uriT = string(abi.encodePacked(base, msgTxt));
+        request.add("get", uriT);
+        
+        
         // Sends the request
         return sendChainlinkRequestTo(oracle, request, fee);
     }
     
-    function fulfill(bytes32 _requestId, string calldata _response) public recordChainlinkFulfillment(_requestId)
+    function setBaseUrl(string calldata uri, string calldata path) public
     {
-        response = _response;
+        uris[msg.sender] = uri;
+        paths[msg.sender] = path;
     }
 
-    function setBaseUrl(string calldata burl) public returns (string memory burlset) 
+    /**
+     * Receive the response in the form of uint256
+     */ 
+    function fulfill(bytes32 _requestId, uint256 _val) public recordChainlinkFulfillment(_requestId)
     {
-        baseUrl = burl;
-        return baseUrl;
+        r = _val;
     }
 
     // function withdrawLink() external {} - Implement a withdraw function to avoid locking your LINK in the contract
 }
-

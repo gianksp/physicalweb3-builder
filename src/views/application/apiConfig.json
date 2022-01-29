@@ -1,0 +1,174 @@
+{
+	"theme": {
+		"primary": "#333333",
+		"secondary": "#ffffff"
+	},
+	"network": {
+		"contract": "0x4F2c71A3e4aFdf3D82d33B3f74f21f596a54Ff96",
+		"imageUrl": "https://logowik.com/content/uploads/images/avalanche-coin-avax8592.jpg",
+		"name": "Fuji Testnet",
+		"id": 43113, 
+		"rpcUrl": "https://api.avax-test.network/ext/bc/C/rpc",
+		"currencySymbol": "AVAX",
+		"currencyName": "Avax",
+		"blockExplorerUrl": "https://testnet.snowtrace.io/"
+	},
+	"about": {
+		"appName": "REST API Invoker",
+		"imageUrl": "https://www.einfochips.com/blog/wp-content/uploads/2018/10/iot_1.gif",
+		"title": "How does it work?",
+		"description": "This template helps you invoke GET methods on a rest API. First call the setBaseUrl and provide the base path of the endpoint including the string with the query param key. As a second parameter specify the path of the response comma separated such as RAW.VALUE.MYVALUE. At the moment this demo only allows invoking and not retrieving data."
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "id",
+					"type": "bytes32"
+				}
+			],
+			"name": "ChainlinkCancelled",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "id",
+					"type": "bytes32"
+				}
+			],
+			"name": "ChainlinkFulfilled",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "id",
+					"type": "bytes32"
+				}
+			],
+			"name": "ChainlinkRequested",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "_requestId",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_val",
+					"type": "uint256"
+				}
+			],
+			"name": "fulfill",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "msgTxt",
+					"type": "string"
+				}
+			],
+			"name": "sendMessage",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "requestId",
+					"type": "bytes32"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "uri",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "path",
+					"type": "string"
+				}
+			],
+			"name": "setBaseUrl",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "paths",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "r",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "uris",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+}

@@ -19,6 +19,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import sampleConfig from './config.json';
+import apiConfig from './apiConfig.json';
 
 const defaultTheme = {
     primary: '#2194f3',
@@ -175,39 +176,24 @@ const items = [
             },
             abi: []
         }
+    },
+    {
+        id: 6,
+        title: 'REST API Integration',
+        description: 'Call a REST endpoint within a Smart Contract, you can even monetize it.',
+        videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
+        imageUrl: 'https://www.einfochips.com/blog/wp-content/uploads/2018/10/iot_1.gif',
+        source: '//www.youtube.com/embed/MIKv-cEfQpU',
+        dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
+        tech: ['Avalanche', 'Testnet', 'Chainlink', 'Covalent'],
+        config: apiConfig
     }
-    // {
-    //     id: 6,
-    //     title: 'REST API Integration',
-    //     description: 'Call a REST endpoint within a Smart Contract, you can even monetize it.',
-    //     videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
-    //     imageUrl: 'https://thumbs.gfycat.com/LegitimateScornfulIraniangroundjay-size_restricted.gif',
-    //     source: '//www.youtube.com/embed/MIKv-cEfQpU',
-    //     dApp: '//www.youtube.com/embed/MIKv-cEfQpU',
-    //     tech: ['Avalanche', 'Testnet', 'Covalent', 'Chainlink'],
-    //     compilerUrl: 'https://binaries.soliditylang.org/wasm/soljson-v0.8.0+commit.c7dfd78e.js',
-    //     contractUrl: '/contracts/SimpleFeedback.sol',
-    //     contractName: 'SimpleFeedback',
-    //     compilerVersion: '0.8.0',
-    //     config: {
-    //         theme: defaultTheme,
-    //         network: defaultNetwork,
-    //         about: {
-    //             appName: 'Suggestion Box Controller',
-    //             imageUrl: 'https://miro.medium.com/max/1400/1*jvT5REAJKM3YJiApuRvgXg.gif',
-    //             title: 'How does it work?',
-    //             description:
-    //                 "Suggestion Box allows you to write messages, testimonies and suggestions to visitors of this location. We ensure that by you being here, you have experienced the good, bad and the ugly from this location and can help us make it better!. With your comments and testimonies you will participate in a raffle at the end of the current month! so make it count!. To get started, change to the 'Controls' tab and tap on 'processMessage', include your thoughts and send!"
-    //         },
-    //         abi: []
-    //     }
-    // }
 ];
 
 const Picker = ({ onSelect }) => {
     const { Moralis, user } = useMoralis();
     const [open, setOpen] = useState(false);
-    const [switchDialog, showSwitchDialog] = useState(false);
+    const [switchDialog, showSwitchDialog] = useState('');
     const [template, setTemplate] = useState({});
     const [isLoading, setLoading] = useState(false);
 
@@ -247,12 +233,14 @@ const Picker = ({ onSelect }) => {
 
     const compileContract = async () => {
         const compiler = new Compiler();
-        compiler.onCompilationFinished = (data) => {
+        compiler.onCompilationFinished = (data, err) => {
             if (data.contracts) {
                 const tContract = data.contracts.fileName[`${template.contractName}`];
                 console.log(tContract);
                 deployContract(tContract);
             } else {
+                console.log(err);
+                console.log(data);
                 console.log('compile failed');
             }
         };
@@ -307,17 +295,19 @@ const Picker = ({ onSelect }) => {
 
     const fromTemplate = async (tmp) => {
         if (isLoading) return;
+        console.log(tmp);
         const validChain = await isValidChain(tmp);
+        console.log(tmp);
         // Is right chain?
         if (!validChain) {
-            showSwitchDialog(true);
+            showSwitchDialog(tmp.config.network.name);
             return;
         }
 
         setTemplate(tmp);
         console.log(tmp);
         console.log(template);
-        if (tmp.id === 0) {
+        if (!tmp.compilerVersion) {
             onSelect(tmp);
         } else {
             handleClickOpen();
@@ -378,20 +368,20 @@ const Picker = ({ onSelect }) => {
 
     const switchNetworkDialog = (
         <Dialog
-            open={switchDialog}
+            open={switchDialog !== ''}
             TransitionComponent={Transition}
             keepMounted
-            onClose={() => showSwitchDialog(false)}
+            onClose={() => showSwitchDialog('')}
             aria-describedby="alert-dialog-slide-description"
         >
             <DialogTitle>Switch Network</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-slide-description">
-                    To deploy this contract you need to switch to the correct network (Avalanche Fuji Testnet).
+                    To deploy this contract you need to switch to the correct network ({switchDialog}).
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button onClick={() => showSwitchDialog(false)}>Close</Button>
+                <Button onClick={() => showSwitchDialog('')}>Close</Button>
             </DialogActions>
         </Dialog>
     );
