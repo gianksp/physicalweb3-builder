@@ -12,16 +12,22 @@ import SubCard from 'ui-component/cards/SubCard';
 
 const guidesList = [
     {
-        videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
-        title: 'Street Performer dApp Controller',
-        description:
-            'John is a street performer and recently started using The Physical Web3 to receive donations in crypto and distribute autographs as NFTs for every contribution received. This is an example from the end user point of view.'
-    },
-    {
         videoUrl: '//www.youtube.com/embed/xOX2avYFNWA',
         title: 'Creating a dApp Controller',
         description:
             'Using our builder you can generate a mobile friendly, configurable interface for any smart contract on any EVM network. You just need to provide the smart contract address and ABI you want to expose in the mobile app'
+    },
+    {
+        videoUrl: '//www.youtube.com/embed/dGp9-Jr4VtI',
+        title: 'Use case - Smart Home',
+        description:
+            'The builder lets you create dApps capable of invoking off-chain REST API. Let it be a smart tv, a third party software or tool, the possibilities are unlimited.'
+    },
+    {
+        videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
+        title: 'Use case - Sharing Work',
+        description:
+            'John is a street performer and recently started using The Physical Web3 to receive donations in crypto and distribute autographs as NFTs for every contribution received. This is an example from the end user point of view.'
     },
     {
         videoUrl: '//www.youtube.com/embed/X0wuCLF7Nqs',
@@ -30,6 +36,7 @@ const guidesList = [
             'One of the powers of the Physical Web3 is the discoverability, using NFC allows any mobile device user to quickly access the dApp controller powering your smart contract without the need to know the underlying details, as easy as a scan. This is the process to setting up an NFC Tag to open your dApp Controller.'
     }
 ];
+
 
 const items = [
     {
