@@ -12,24 +12,42 @@ import SubCard from 'ui-component/cards/SubCard';
 
 const guidesList = [
     {
+        id: 0,
         videoUrl: '//www.youtube.com/embed/xOX2avYFNWA',
         title: 'Creating a dApp Controller',
         description:
             'Using our builder you can generate a mobile friendly, configurable interface for any smart contract on any EVM network. You just need to provide the smart contract address and ABI you want to expose in the mobile app'
     },
     {
+        id: 1,
+        videoUrl: '//www.youtube.com/embed/9vMd3nNCQJg',
+        title: 'Use case - Street Vendor',
+        description:
+            'Arthur has an ice cream truck and recently started using The Physical Web3 to receive payments in crypto in exchange for his delicious ice creams!.'
+    },
+    {
+        id: 2,
+        videoUrl: '//www.youtube.com/embed/lpf_C_3opu4',
+        title: 'Use case - Ticket Sales',
+        description:
+            'Paradise Theathers now accept ticket purchase using Physical Web3. Go to the poster of the premiere you want to spectate and pay 0.2 AVAX per ticket. Once the presentation starts, we will check against the wallet address.'
+    },
+    {
+        id: 3,
         videoUrl: '//www.youtube.com/embed/dGp9-Jr4VtI',
         title: 'Use case - Smart Home',
         description:
             'The builder lets you create dApps capable of invoking off-chain REST API. Let it be a smart tv, a third party software or tool, the possibilities are unlimited.'
     },
     {
+        id: 4,
         videoUrl: '//www.youtube.com/embed/MIKv-cEfQpU',
         title: 'Use case - Sharing Work',
         description:
             'John is a street performer and recently started using The Physical Web3 to receive donations in crypto and distribute autographs as NFTs for every contribution received. This is an example from the end user point of view.'
     },
     {
+        id: 5,
         videoUrl: '//www.youtube.com/embed/X0wuCLF7Nqs',
         title: 'Configuring NFC Tag For dApp Controller',
         description:
@@ -39,16 +57,19 @@ const guidesList = [
 
 const items = [
     {
+        id: 'a',
         title: 'PW3Builder Github',
         imageUrl: 'https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA',
         url: 'https://github.com/gianksp/physicalweb3-builder'
     },
     {
+        id: 'b',
         title: 'PW3App Github',
         imageUrl: 'https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA',
         url: 'https://github.com/gianksp/physicalweb3-dapp'
     },
     {
+        id: 'c',
         title: 'Contracts Github',
         imageUrl: 'https://opensource.com/sites/default/files/styles/image-full-size/public/lead-images/github-universe.jpg?itok=lwRZddXA',
         url: 'https://github.com/gianksp/physicalweb3-builder/tree/main/public/contracts'
@@ -60,7 +81,7 @@ export default function Resources() {
         const res = [];
         guidesList.forEach((item) => {
             res.push(
-                <Grid container sx={{ mb: 5 }}>
+                <Grid container sx={{ mb: 5 }} key={item.id}>
                     <Grid item xs={12} md={3} className="video-container">
                         <iframe title="t" src={item.videoUrl} frameBorder="0" allowFullScreen />
                     </Grid>
@@ -96,7 +117,7 @@ export default function Resources() {
         const list = [];
         items.forEach((item) => {
             list.push(
-                <Grid item md={4} sm={6} key={item.title}>
+                <Grid item md={4} sm={6} key={item.id}>
                     <FadeInWhenVisible>
                         <SubCard
                             sx={{
