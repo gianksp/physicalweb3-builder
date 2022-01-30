@@ -1,6 +1,8 @@
 // material-ui
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
-import { Avatar, Button, Container, Grid, Link, Typography } from '@mui/material';
+import { Avatar, Button, Container, Grid, Link, Typography, Box, Tab, Tabs } from '@mui/material';
 
 // project imports
 import FadeInWhenVisible from './Animation';
@@ -18,10 +20,46 @@ import AttachmentTwoToneIcon from '@mui/icons-material/AttachmentTwoTone';
 import CallSplitTwoToneIcon from '@mui/icons-material/CallSplitTwoTone';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
+import TestShareWork from 'views/pages/landing/TestShareWork';
+import TestVendor from 'views/pages/landing/TestVendor';
+import TestSellTickets from 'views/pages/landing/TestSellTickets';
 
 // ============================|| LANDING - KEY FEATURE PAGE ||============================ //
 
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div role="tabpanel" hidden={value !== index} id={`simple-tabpanel-${index}`} aria-labelledby={`simple-tab-${index}`} {...other}>
+            {value === index && (
+                <Box sx={{ p: 3 }}>
+                    <Typography>{children}</Typography>
+                </Box>
+            )}
+        </div>
+    );
+}
+
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired
+};
+
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`
+    };
+}
+
 const TestPage = () => {
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
     const theme = useTheme();
     const avatarIconSx = {
         ...theme.typography.commonAvatar,
@@ -35,162 +73,32 @@ const TestPage = () => {
             <Grid container spacing={gridSpacing}>
                 <Grid item xs={12}>
                     <Grid container spacing={2} sx={{ mb: 2 }}>
-                        <Grid item xs={12} sx={{ mb: 3 }}>
+                        <Grid item xs={12}>
                             <Typography variant="h1" component="div">
                                 Try it
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Typography
-                                variant="body2"
-                                sx={{
-                                    fontSize: { xs: '1.2rem', md: '1.125rem' },
-                                    fontWeight: 400,
-                                    lineHeight: 1.4
-                                }}
-                            >
-                                John is a street performer and recently started using The Physical Web3 to receive donations in crypto and
-                                distribute autographs as NFTs for every contribution received.
                             </Typography>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={12}>
-                    <Grid container justifyContent="center" spacing={gridSpacing}>
-                        <Grid item xs={12} md={6}>
-                            <FadeInWhenVisible>
-                                <Grid
-                                    container
-                                    alignItems="center"
-                                    spacing={2}
-                                    sx={{ pl: 2 }}
-                                    style={{ position: 'relative', marginTop: 2 }}
-                                >
-                                    <img
-                                        src="https://cdn.dribbble.com/users/3377233/screenshots/6226947/jamming.gif"
-                                        alt="performer"
-                                        style={{
-                                            maxWidth: '100%'
-                                        }}
-                                    />
-                                    <img
-                                        src={imgbase}
-                                        alt="performer"
-                                        style={{
-                                            position: 'absolute',
-                                            width: '30%',
-                                            left: 20,
-                                            bottom: 0
-                                        }}
-                                    />
-                                </Grid>
-                            </FadeInWhenVisible>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <FadeInWhenVisible>
-                                <SubCard>
-                                    <Grid container alignItems="center" spacing={2} sx={{ mb: 4 }}>
-                                        <Grid item>
-                                            <Avatar
-                                                variant="rounded"
-                                                sx={{
-                                                    ...avatarIconSx,
-                                                    bgcolor: theme.palette.mode === 'dark' ? theme.palette.dark[800] : 'primary.light',
-                                                    color: theme.palette.primary.main
-                                                }}
-                                            >
-                                                1
-                                            </Avatar>
-                                        </Grid>
-                                        <Grid item xs zeroMinWidth>
-                                            <Typography variant="body" fontSize="1.2em">
-                                                Scan the QR Code from your mobile and follow the steps to access the{' '}
-                                                <a href="https://app.physicalweb3.com?appId=NG5mrMw7CInc88MrTAz5btOk">dApp</a>.
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container alignItems="center" spacing={2} sx={{ mb: 4 }}>
-                                        <Grid item>
-                                            <Avatar
-                                                variant="rounded"
-                                                sx={{
-                                                    ...avatarIconSx,
-                                                    bgcolor: theme.palette.mode === 'dark' ? theme.palette.dark[800] : 'primary.light',
-                                                    color: theme.palette.primary.main
-                                                }}
-                                            >
-                                                2
-                                            </Avatar>
-                                        </Grid>
-                                        <Grid item xs zeroMinWidth>
-                                            <Typography variant="body" fontSize="1.2em">
-                                                This example is deployed in Avalanche Fuji Testnet. To get some test AVAX use the{' '}
-                                                <a href="https://faucet.avax-test.network/" target="_blank" rel="noreferrer">
-                                                    faucet
-                                                </a>
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container alignItems="center" spacing={2} sx={{ mb: 4 }}>
-                                        <Grid item>
-                                            <Avatar
-                                                variant="rounded"
-                                                sx={{
-                                                    ...avatarIconSx,
-                                                    bgcolor: theme.palette.mode === 'dark' ? theme.palette.dark[800] : 'primary.light',
-                                                    color: theme.palette.primary.main
-                                                }}
-                                            >
-                                                3
-                                            </Avatar>
-                                        </Grid>
-                                        <Grid item xs zeroMinWidth>
-                                            <Typography variant="body" fontSize="1.2em">
-                                                Once in the dApp, make sure you have changed your network in Metamask with the network
-                                                information in the About page. Then go to the Control tab, input a value and tap donate.
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container alignItems="center" spacing={2}>
-                                        <Grid item>
-                                            <Avatar
-                                                variant="rounded"
-                                                sx={{
-                                                    ...avatarIconSx,
-                                                    bgcolor: theme.palette.mode === 'dark' ? theme.palette.dark[800] : 'primary.light',
-                                                    color: theme.palette.primary.main
-                                                }}
-                                            >
-                                                4
-                                            </Avatar>
-                                        </Grid>
-                                        <Grid item xs zeroMinWidth>
-                                            <Typography variant="body" fontSize="1.2em">
-                                                You will se a button link to the transaction. If you follow it you will see the NFT
-                                                autograph contract adresss and Id that you can add to Metamask.
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                </SubCard>
-                            </FadeInWhenVisible>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} sx={{ mt: 3 }}>
-                    <Grid container justifyContent="center" spacing={gridSpacing}>
-                        <Grid item>
-                            <AnimateButton>
-                                <Button component={Link} href="https://youtu.be/MIKv-cEfQpU" target="_blank" variant="contained">
-                                    Watch the video
-                                </Button>
-                            </AnimateButton>
-                        </Grid>
-                        <Grid item>
-                            <Button component={Link} href="/cases" variant="text">
-                                More use cases
-                            </Button>
-                        </Grid>
-                    </Grid>
+                    <Box sx={{ width: '100%' }}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <Tabs value={value} onChange={handleChange} aria-label="test options">
+                                <Tab label="Vendor" {...a11yProps(0)} />
+                                <Tab label="Ticket Sales" {...a11yProps(1)} />
+                                <Tab label="Work Sharing" {...a11yProps(2)} />
+                            </Tabs>
+                        </Box>
+                        <TabPanel value={value} index={0}>
+                            <TestVendor />
+                        </TabPanel>
+                        <TabPanel value={value} index={1}>
+                            <TestSellTickets />
+                        </TabPanel>
+                        <TabPanel value={value} index={2}>
+                            <TestShareWork />
+                        </TabPanel>
+                    </Box>
                 </Grid>
             </Grid>
         </Container>

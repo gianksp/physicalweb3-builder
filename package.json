@@ -38,6 +38,7 @@
         "jwt-decode": "^3.1.2",
         "lodash": "^4.17.21",
         "material-ui-popup-state": "^1.8.0",
+        "moment": "^2.29.1",
         "moralis": "^0.0.183",
         "mui-color": "^2.0.0-beta.2",
         "prop-types": "^15.7.2",

@@ -37,7 +37,6 @@ const guidesList = [
     }
 ];
 
-
 const items = [
     {
         title: 'PW3Builder Github',

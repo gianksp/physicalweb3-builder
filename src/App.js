@@ -35,12 +35,10 @@ const App = () => {
                     {/* <RTLLayout> */}
                     <Locales>
                         <NavigationScroll>
-                            <FirebaseProvider>
-                                <>
-                                    <Routes />
-                                    <Snackbar />
-                                </>
-                            </FirebaseProvider>
+                            <>
+                                <Routes />
+                                <Snackbar />
+                            </>
                         </NavigationScroll>
                     </Locales>
                     {/* </RTLLayout> */}
