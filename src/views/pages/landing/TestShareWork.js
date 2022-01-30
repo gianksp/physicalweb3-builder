@@ -9,7 +9,7 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 import { gridSpacing } from 'store/constant';
 
 // assets
-import imgbase from 'assets/images/demodapp.png';
+import imgbase from 'assets/images/demodappshare.png';
 import FolderTwoToneIcon from '@mui/icons-material/FolderTwoTone';
 import CodeTwoToneIcon from '@mui/icons-material/CodeTwoTone';
 import EmojiEmotionsTwoToneIcon from '@mui/icons-material/EmojiEmotionsTwoTone';
@@ -18,8 +18,10 @@ import AttachmentTwoToneIcon from '@mui/icons-material/AttachmentTwoTone';
 import CallSplitTwoToneIcon from '@mui/icons-material/CallSplitTwoTone';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
+import TX from 'views/pages/landing/TX';
 
 // ============================|| LANDING - KEY FEATURE PAGE ||============================ //
+const wallet = '0x7E728f77aD8fe1f68cd4B7e9133d9A1118B5aF30';
 
 const TestShareWork = () => {
     const theme = useTheme();
@@ -32,6 +34,18 @@ const TestShareWork = () => {
 
     return (
         <Grid container justifyContent="center" spacing={gridSpacing}>
+            <Grid item xs={12}>
+                <Typography
+                    variant="body2"
+                    sx={{
+                        fontSize: '1.5rem',
+                        fontWeight: 'bold',
+                        lineHeight: 1.4
+                    }}
+                >
+                    Share Work - Send an Autographed NFT for every donation your receive!
+                </Typography>
+            </Grid>
             <Grid item xs={12}>
                 <Typography
                     variant="body2"
@@ -61,16 +75,22 @@ const TestShareWork = () => {
                             style={{
                                 position: 'absolute',
                                 width: '30%',
-                                left: 20,
-                                bottom: 0
+                                left: 25,
+                                bottom: 10
                             }}
                         />
+                        <TX title="John's Wallet" wallet={wallet} />
                     </Grid>
                 </FadeInWhenVisible>
             </Grid>
             <Grid item xs={12} md={6}>
                 <FadeInWhenVisible>
                     <SubCard>
+                        <Grid item xs={12} style={{ textAlign: 'center' }}>
+                            <Typography variant="body" fontSize="1.5em">
+                                <strong>Get an autograph NFT!</strong>
+                            </Typography>
+                        </Grid>
                         <Grid container alignItems="center" spacing={2} sx={{ mb: 4 }}>
                             <Grid item>
                                 <Avatar
@@ -86,8 +106,7 @@ const TestShareWork = () => {
                             </Grid>
                             <Grid item xs zeroMinWidth>
                                 <Typography variant="body" fontSize="1.2em">
-                                    Scan the QR Code from your mobile and follow the steps to access the{' '}
-                                    <a href="https://app.physicalweb3.com?appId=NG5mrMw7CInc88MrTAz5btOk">dApp</a>.
+                                    Scan the QR Code from your mobile and open the app.
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -106,10 +125,7 @@ const TestShareWork = () => {
                             </Grid>
                             <Grid item xs zeroMinWidth>
                                 <Typography variant="body" fontSize="1.2em">
-                                    This example is deployed in Avalanche Fuji Testnet. To get some test AVAX use the{' '}
-                                    <a href="https://faucet.avax-test.network/" target="_blank" rel="noreferrer">
-                                        faucet
-                                    </a>
+                                    Follow the instructions from the landing page. Pay any amount for donation.
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -128,28 +144,7 @@ const TestShareWork = () => {
                             </Grid>
                             <Grid item xs zeroMinWidth>
                                 <Typography variant="body" fontSize="1.2em">
-                                    Once in the dApp, make sure you have changed your network in Metamask with the network information in
-                                    the About page. Then go to the Control tab, input a value and tap donate.
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container alignItems="center" spacing={2}>
-                            <Grid item>
-                                <Avatar
-                                    variant="rounded"
-                                    sx={{
-                                        ...avatarIconSx,
-                                        bgcolor: theme.palette.mode === 'dark' ? theme.palette.dark[800] : 'primary.light',
-                                        color: theme.palette.primary.main
-                                    }}
-                                >
-                                    4
-                                </Avatar>
-                            </Grid>
-                            <Grid item xs zeroMinWidth>
-                                <Typography variant="body" fontSize="1.2em">
-                                    You will se a button link to the transaction. If you follow it you will see the NFT autograph contract
-                                    adresss and Id that you can add to Metamask.
+                                    You will receive an NFT to your wallet as part of your donation. Check the video below to know how!
                                 </Typography>
                             </Grid>
                         </Grid>

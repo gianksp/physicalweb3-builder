@@ -1,6 +1,7 @@
 // material-ui
+import { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
-import { Avatar, Button, Container, Grid, Link, Typography } from '@mui/material';
+import { Avatar, Button, Container, Grid, Link, Typography, Box } from '@mui/material';
 
 // project imports
 import FadeInWhenVisible from './Animation';
@@ -9,17 +10,11 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 import { gridSpacing } from 'store/constant';
 
 // assets
-import imgbase from 'assets/images/demodapp.png';
-import FolderTwoToneIcon from '@mui/icons-material/FolderTwoTone';
-import CodeTwoToneIcon from '@mui/icons-material/CodeTwoTone';
-import EmojiEmotionsTwoToneIcon from '@mui/icons-material/EmojiEmotionsTwoTone';
-import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
-import AttachmentTwoToneIcon from '@mui/icons-material/AttachmentTwoTone';
-import CallSplitTwoToneIcon from '@mui/icons-material/CallSplitTwoTone';
-import TextFieldsIcon from '@mui/icons-material/TextFields';
-import DesignServicesIcon from '@mui/icons-material/DesignServices';
+import imgbase from 'assets/images/demodapptickets.png';
+import TX from 'views/pages/landing/TX';
 
 // ============================|| LANDING - KEY FEATURE PAGE ||============================ //
+const wallet = '0x53Df0FA89AD8391Cb347BF64cbf48f13e5d4Fb19';
 
 const TestSellTickets = () => {
     const theme = useTheme();
@@ -36,23 +31,35 @@ const TestSellTickets = () => {
                 <Typography
                     variant="body2"
                     sx={{
+                        fontSize: '1.5rem',
+                        fontWeight: 'bold',
+                        lineHeight: 1.4
+                    }}
+                >
+                    Ticket Sales
+                </Typography>
+            </Grid>
+            <Grid item xs={12}>
+                <Typography
+                    variant="body2"
+                    sx={{
                         fontSize: { xs: '1.2rem', md: '1.125rem' },
                         fontWeight: 400,
                         lineHeight: 1.4
                     }}
                 >
-                    John is a street performer and recently started using The Physical Web3 to receive donations in crypto and distribute
-                    autographs as NFTs for every contribution received.
+                    Paradise Theathers now accept ticket purchase using Physical Web3. Go to the poster of the premiere you want to spectate
+                    and pay 0.2 AVAX per ticket. Once the presentation starts, we will check against the wallet address.
                 </Typography>
             </Grid>
             <Grid item xs={12} md={6}>
                 <FadeInWhenVisible>
                     <Grid container alignItems="center" spacing={2} sx={{ pl: 2 }} style={{ position: 'relative', marginTop: 2 }}>
                         <img
-                            src="https://cdn.dribbble.com/users/3377233/screenshots/6226947/jamming.gif"
-                            alt="performer"
+                            src="https://i.pinimg.com/originals/4d/6e/89/4d6e894dfeffe8dc60939273ee78b573.gif"
+                            alt="vendor"
                             style={{
-                                maxWidth: '100%'
+                                width: '100%'
                             }}
                         />
                         <img
@@ -61,10 +68,11 @@ const TestSellTickets = () => {
                             style={{
                                 position: 'absolute',
                                 width: '30%',
-                                left: 20,
-                                bottom: 0
+                                right: 10,
+                                bottom: 10
                             }}
                         />
+                        <TX title="Cinema Function: The last of the dApps II" wallet={wallet} />
                     </Grid>
                 </FadeInWhenVisible>
             </Grid>
@@ -72,6 +80,11 @@ const TestSellTickets = () => {
                 <FadeInWhenVisible>
                     <SubCard>
                         <Grid container alignItems="center" spacing={2} sx={{ mb: 4 }}>
+                            <Grid item xs={12} style={{ textAlign: 'center' }}>
+                                <Typography variant="body" fontSize="1.5em">
+                                    <strong>Buy a ticket!</strong>
+                                </Typography>
+                            </Grid>
                             <Grid item>
                                 <Avatar
                                     variant="rounded"
@@ -86,8 +99,7 @@ const TestSellTickets = () => {
                             </Grid>
                             <Grid item xs zeroMinWidth>
                                 <Typography variant="body" fontSize="1.2em">
-                                    Scan the QR Code from your mobile and follow the steps to access the{' '}
-                                    <a href="https://app.physicalweb3.com?appId=NG5mrMw7CInc88MrTAz5btOk">dApp</a>.
+                                    Scan the QR Code from your mobile and open the app.
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -106,10 +118,7 @@ const TestSellTickets = () => {
                             </Grid>
                             <Grid item xs zeroMinWidth>
                                 <Typography variant="body" fontSize="1.2em">
-                                    This example is deployed in Avalanche Fuji Testnet. To get some test AVAX use the{' '}
-                                    <a href="https://faucet.avax-test.network/" target="_blank" rel="noreferrer">
-                                        faucet
-                                    </a>
+                                    Follow the instructions from the landing page. It is 0.2 AVAX per ticket!.
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -128,28 +137,7 @@ const TestSellTickets = () => {
                             </Grid>
                             <Grid item xs zeroMinWidth>
                                 <Typography variant="body" fontSize="1.2em">
-                                    Once in the dApp, make sure you have changed your network in Metamask with the network information in
-                                    the About page. Then go to the Control tab, input a value and tap donate.
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container alignItems="center" spacing={2}>
-                            <Grid item>
-                                <Avatar
-                                    variant="rounded"
-                                    sx={{
-                                        ...avatarIconSx,
-                                        bgcolor: theme.palette.mode === 'dark' ? theme.palette.dark[800] : 'primary.light',
-                                        color: theme.palette.primary.main
-                                    }}
-                                >
-                                    4
-                                </Avatar>
-                            </Grid>
-                            <Grid item xs zeroMinWidth>
-                                <Typography variant="body" fontSize="1.2em">
-                                    You will se a button link to the transaction. If you follow it you will see the NFT autograph contract
-                                    adresss and Id that you can add to Metamask.
+                                    Enjoy your movie and monitor the transaction as it goes to the vendor.
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -160,7 +148,7 @@ const TestSellTickets = () => {
                 <Grid container justifyContent="center" spacing={gridSpacing}>
                     <Grid item>
                         <AnimateButton>
-                            <Button component={Link} href="https://youtu.be/MIKv-cEfQpU" target="_blank" variant="contained">
+                            <Button component={Link} href="https://youtu.be/lpf_C_3opu4" target="_blank" variant="contained">
                                 Watch the video
                             </Button>
                         </AnimateButton>

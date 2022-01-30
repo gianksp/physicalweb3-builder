@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 import { Box, Paper, Grid, Typography } from '@mui/material';
 import QRCode from 'react-qr-code';
+import StarIcon from '@mui/icons-material/Star';
 
 const getAppUrl = (id) => `https://app.physicalweb3.com?appId=${id}`;
 
 const DetailsApp = ({ app }) => (
-    <Paper sx={{ borderRadius: 0, p: 3 }} elevation="4">
+    <Paper sx={{ borderRadius: 0, p: 3, position: 'relative' }} elevation="4">
+        {app.attributes.featured && (
+            <Box sx={{ position: 'absolute', top: 25, right: 20 }}>
+                <StarIcon style={{ fill: 'orange' }} />
+            </Box>
+        )}
         <Grid container spacing={0.3}>
             <Grid item sx={{ mb: 3 }} xs={12}>
                 <Typography variant="h3">{app.attributes.configuration.about.appName}</Typography>

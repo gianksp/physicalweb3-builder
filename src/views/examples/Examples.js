@@ -12,17 +12,19 @@ import DetailsApp from 'views/application/DetailsApp';
 export default function Examples() {
     const { appCatalog = [] } = useAppCatalog([]);
 
-    const listApps = () => {
+    const listApps = (featured = false) => {
         const list = [];
         appCatalog.forEach((app) => {
             console.log(app);
-            list.push(
-                <Grid item xs={12} md={6} xxl={3} key={app.id}>
-                    <Box>
-                        <DetailsApp app={app} />
-                    </Box>
-                </Grid>
-            );
+            if (!featured || (featured && app.attributes.featured)) {
+                list.push(
+                    <Grid item xs={12} md={6} xxl={3} key={app.id}>
+                        <Box>
+                            <DetailsApp app={app} />
+                        </Box>
+                    </Grid>
+                );
+            }
         });
         return list;
     };
@@ -39,10 +41,23 @@ export default function Examples() {
                             lineHeight: 1.4
                         }}
                     >
+                        Featured Apps
+                    </Typography>
+                </Grid>
+                {listApps(true)}
+                <Grid item xs={12} sx={{ mt: 5 }}>
+                    <Typography
+                        variant="h1"
+                        sx={{
+                            fontSize: '3rem',
+                            fontWeight: 900,
+                            lineHeight: 1.4
+                        }}
+                    >
                         Live Apps
                     </Typography>
                 </Grid>
-                {listApps()}
+                {listApps(false)}
             </Grid>
         </Container>
     );
