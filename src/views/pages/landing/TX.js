@@ -72,11 +72,15 @@ const TX = ({ title, wallet }) => {
         const list = [];
         transactions.forEach((tx) => {
             const timeAgo = moment(tx.block_signed_at).fromNow(true);
-            const link = `https://testnet.snowtrace.io/tx/${tx.hash}`;
+            console.log(tx);
+            const link = `https://testnet.snowtrace.io/tx/${tx.tx_hash}`;
             list.push(
-                <Grid item xs={12} style={{ textAlign: 'left' }} key={tx.hash}>
+                <Grid item xs={12} style={{ textAlign: 'left', paddingTop: 0 }} key={tx.hash}>
                     <Typography variant="body" fontSize="1.15em">
-                        <strong>{timeAgo} ago </strong> payment <a href={link}>{ethers.utils.formatEther(tx.value)} AVAX</a> from{' '}
+                        <strong>{timeAgo} ago </strong> payment{' '}
+                        <a href={link} target="_blank" rel="noreferrer">
+                            {ethers.utils.formatEther(tx.value)} AVAX
+                        </a>{' '}
                         <i>{trimAddress(tx.from_address)}</i>
                     </Typography>
                 </Grid>
